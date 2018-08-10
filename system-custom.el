@@ -3,8 +3,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(markdown-command "/usr/bin/pandoc")
  '(package-selected-packages
-   '(yasnippet-snippets zoom-window yaml-mode which-key web-mode use-package tagedit smex slime-company scala-mode rust-mode rbenv rainbow-delimiters projectile org-present org-plus-contrib magit lsp-ui json-mode js2-mode js-doc ido-vertical-mode ido-completing-read+ go-mode flx-ido exec-path-from-shell company-lsp clojure-mode-extra-font-locking clj-refactor ag)))
+   '(which-key go-mode rbenv org-present org-plus-contrib web-mode js-doc js2-mode json-mode tagedit clojure-mode-extra-font-locking clj-refactor cider yasnippet-snippets yasnippet multiple-cursors rust-mode scala-mode yaml-mode slime-company slime company-lsp lsp-ui lsp-mode markdown-mode magit company rainbow-delimiters zoom-window ag projectile smex ido-completing-read+ ido-vertical-mode flx-ido flx exec-path-from-shell use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
