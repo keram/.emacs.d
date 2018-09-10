@@ -39,3 +39,6 @@
 )
 
 (put 'dired-find-alternate-file 'disabled nil)
+
+;; https://emacs.stackexchange.com/questions/28/safe-way-to-enable-local-variables
+(setq enable-local-variables :safe)
