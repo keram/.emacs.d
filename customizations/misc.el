@@ -38,3 +38,4 @@
   (add-hook 'ielm-mode-hook    #'enable-paredit-mode)
 )
 
+(put 'dired-find-alternate-file 'disabled nil)

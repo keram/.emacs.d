@@ -63,4 +63,3 @@
 
 ;; Hard-to-categorize customizations
 (load "misc.el")
-(put 'dired-find-alternate-file 'disabled nil)
