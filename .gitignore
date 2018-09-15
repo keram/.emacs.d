@@ -18,3 +18,4 @@ tramp
 projectile.cache
 .smex-items
 places
+.mc-lists.el
