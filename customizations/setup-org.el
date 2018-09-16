@@ -41,3 +41,7 @@
       org-src-tab-acts-natively t)
 
 (require 'org)
+
+(add-hook 'after-init-hook
+          (lambda ()
+            (org-agenda-list 1)))
