@@ -6,11 +6,14 @@
 (setq-default default-buffer-file-coding-system 'utf-8-unix)
 (set-terminal-coding-system 'utf-8-unix)
 (set-keyboard-coding-system 'utf-8-unix)
+(set-default-coding-systems 'utf-8-unix)
+(set-terminal-coding-system 'utf-8-unix)
 
 (setq buffer-file-coding-system 'utf-8-unix)
 (setq default-buffer-file-coding-system 'utf-8-unix)
 (setq coding-system-for-read 'utf-8-unix)
 (setq coding-system-for-write 'utf-8-unix)
+(setq locale-coding-system 'utf-8-unix)
 
 ;; Remove white spaces on save
 (add-hook 'before-save-hook 'whitespace-cleanup)
