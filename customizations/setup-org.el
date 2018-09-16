@@ -1,5 +1,11 @@
 (use-package org
   :defer t
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook 'org-bullets-mode))
+
+(use-package org-bullets
+  :defer t
   :ensure t)
 
 (use-package org-plus-contrib
