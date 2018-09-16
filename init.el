@@ -8,6 +8,9 @@
         ("marmalade" . "https://marmalade-repo.org/packages/")
         ("melpa" . "https://melpa.org/packages/"))))
 
+(when (version< emacs-version "27.0") (package-initialize))
+
+;; this does not work for emacs 26
 (unless package--initialized (package-initialize t))
 
 ;; less refresh the packages
@@ -16,12 +19,6 @@
 
 (unless (package-installed-p 'use-package)
   (package-install 'use-package))
-
-;; (dolist (pa my-packages)
-;;   (unless (package-installed-p pa)
-;;      (package-install pa)))
-;;
-
 ;;;;
 ;; Customization
 ;;;;
