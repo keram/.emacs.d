@@ -33,3 +33,5 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
+
+(setq org-agenda-files (file-expand-wildcards (concat org-directory "/" "*.org")))
