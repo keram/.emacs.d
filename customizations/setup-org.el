@@ -1,5 +1,11 @@
 (use-package org
   :defer t
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook 'org-bullets-mode))
+
+(use-package org-bullets
+  :defer t
   :ensure t)
 
 (use-package org-plus-contrib
@@ -35,3 +41,7 @@
       org-src-tab-acts-natively t)
 
 (require 'org)
+
+(add-hook 'after-init-hook
+          (lambda ()
+            (org-agenda-list 1)))
