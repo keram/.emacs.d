@@ -45,3 +45,10 @@
 (add-hook 'after-init-hook
           (lambda ()
             (org-agenda-list 1)))
+
+(add-hook 'kill-emacs-hook
+          (lambda ()
+            (if (eq system-type 'windows-nt)
+                (let ((default-directory "~/tools"))
+                  (shell-command-to-string "sync-org.bat"))
+              )))
