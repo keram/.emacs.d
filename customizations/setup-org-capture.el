@@ -1,7 +1,3 @@
-(setq org-directory "~/docs/org")
-(setq org-default-notes-file (concat org-directory "/" "refile.org"))
-(setq org-log-done t)
-
 ;; Does not work properly with emacs-snapshot ?!
 ;; Capture templates for: TODO tasks, Notes, habits, meetings, and org-protocol
 ;; (setq org-capture-templates
@@ -25,7 +21,7 @@
     (beginning-of-line 0)
     (org-remove-empty-drawer-at "LOGBOOK" (point))))
 
-(add-hook 'org-clock-out-hook 'bh/remove-empty-drawer-on-clock-out 'append)
+;;(add-hook 'org-clock-out-hook 'bh/remove-empty-drawer-on-clock-out 'append)
 
 (global-set-key (kbd "C-c o")
                 (lambda () (interactive) (find-file org-default-notes-file)))
@@ -33,5 +29,3 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
-
-(setq org-agenda-files (file-expand-wildcards (concat org-directory "/" "*.org")))
