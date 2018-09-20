@@ -52,3 +52,6 @@
                 (let ((default-directory "~/tools"))
                   (shell-command-to-string "sync-org.bat"))
               )))
+
+;; show current and next day only in agenda view by default
+(setq org-agenda-span 2)
