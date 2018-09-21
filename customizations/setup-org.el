@@ -47,6 +47,9 @@
 (setq org-agenda-files
       (file-expand-wildcards (concat org-directory "/" "*.org")))
 (setq org-agenda-skip-scheduled-if-done t)
+(setq org-refile-targets
+      '((nil :maxlevel . 1)
+        (org-agenda-files :maxlevel . 1)))
 
 ;; show current and next day only in agenda view by default
 (setq org-agenda-span 2)
