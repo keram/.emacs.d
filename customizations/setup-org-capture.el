@@ -1,18 +1,14 @@
-;; Does not work properly with emacs-snapshot ?!
-;; Capture templates for: TODO tasks, Notes, habits, meetings, and org-protocol
-;; (setq org-capture-templates
-;;       (quote (("t" "todo" entry (file org-default-notes-file)
-;;                "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
-;;               ("n" "note" entry (file org-default-notes-file)
-;;                "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
-;;               ("j" "Journal" entry (file+datetree (concat org-directory "/" "diary.org"))
-;;                "* %?\n%U\n" :clock-in t :clock-resume t)
-;;               ("w" "org-protocol" entry (file org-default-notes-file)
-;;                "* TODO Review %c\n%U\n" :immediate-finish t)
-;;               ("m" "Meeting" entry (file org-default-notes-file)
-;;                "* MEETING with %? :MEETING:\n%U" :clock-in t :clock-resume t)
-;;               ("h" "Habit" entry (file org-default-notes-file)
-;;                "* NEXT %?\n%U\n%a\nSCHEDULED: %(format-time-string \"%<<%Y-%m-%d %a .+1d/3d>>\")\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n"))))
+(require 'org-datetree)
+(setq org-capture-templates
+      (quote (("t" "Todo" entry (file+headline "~/docs/org/gtd.org" "GTD")
+               "* TODO %?\n%U\n%a\n")
+              ("n" "Note" entry (file+headline org-default-notes-file "Notes")
+               "* %? :NOTE:\n%U\n%a\n")
+              ("c" "Code" entry (file+headline org-default-notes-file "Code")
+                ;; Prompt for tag and language
+                "* %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
+              ("d" "Diary" entry (file+datetree "~/docs/org/diary.org")
+               "* %?\n%U\n"))))
 
 ;; Remove empty LOGBOOK drawers on clock out
 (defun bh/remove-empty-drawer-on-clock-out ()
@@ -21,7 +17,7 @@
     (beginning-of-line 0)
     (org-remove-empty-drawer-at "LOGBOOK" (point))))
 
-;;(add-hook 'org-clock-out-hook 'bh/remove-empty-drawer-on-clock-out 'append)
+(add-hook 'org-clock-out-hook 'bh/remove-empty-drawer-on-clock-out 'append)
 
 (global-set-key (kbd "C-c o")
                 (lambda () (interactive) (find-file org-default-notes-file)))

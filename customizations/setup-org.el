@@ -36,23 +36,31 @@
  '((emacs-lisp . t)
    (clojure . t)
    (shell . t)
+   (gnuplot . t)
+   (js . t)
+   (sql . t)
    (ruby . t)))
 
 (setq org-confirm-babel-evaluate nil
       org-src-fontify-natively t
       org-src-tab-acts-natively t)
-(setq org-directory "~/docs/org")
-(setq org-default-notes-file (concat org-directory "/" "refile.org"))
-(setq org-log-done t)
-(setq org-agenda-files
-      (file-expand-wildcards (concat org-directory "/" "*.org")))
-(setq org-agenda-skip-scheduled-if-done t)
-(setq org-refile-targets
-      '((nil :maxlevel . 1)
-        (org-agenda-files :maxlevel . 1)))
 
-;; show current and next day only in agenda view by default
-(setq org-agenda-span 2)
+(setq org-directory "~/docs/org"
+      org-default-notes-file (concat org-directory "/" "refile.org")
+      org-log-done t
+      org-agenda-files (file-expand-wildcards (concat org-directory "/" "*.org"))
+      org-agenda-skip-deadline-if-done t
+      org-agenda-skip-scheduled-if-done t
+      org-agenda-skip-timestamp-if-done t
+      ;; show current and next day only in agenda view by default
+      org-agenda-span 2
+      org-use-fast-todo-selection t
+      org-enforce-todo-dependencies t
+      org-ellipsis "⤵")
+
+(setq org-refile-targets
+     (quote ((nil :maxlevel . 2)
+       (org-agenda-files :maxlevel . 2))))
 
 (add-hook 'after-init-hook
           (lambda ()
@@ -90,3 +98,15 @@
   )
 
 (run-with-idle-timer 300 t 'jump-to-org-agenda)
+
+(setq org-todo-keywords
+      (quote ((sequence "TODO(t)"
+                        "IN_PROGRESS(i)"
+                        "|"
+                        "DONE(d)"
+                        "CANCELLED(c)"
+                        "POSTPONED(p)"
+                        ))))
+
+
+;; (use-package org-plus-contrib)
