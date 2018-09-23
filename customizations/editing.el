@@ -116,6 +116,7 @@
 
 (use-package company-lsp
   :ensure t
+  :defer t
   :config
   (push 'company-lsp company-backend))
 
@@ -133,16 +134,28 @@
   (slime-setup '(slime-fancy slime-company)))
 ; end lisp
 
+;; yaml
 (use-package yaml-mode
   :defer t
+  :mode ("\\.yaml\\'" "\\.yml\\'")
   :ensure t)
+
+;; scala
+(use-package ensime
+  :ensure t
+  :defer t
+  :commands (ensime-scala-mode-hook))
 
 (use-package scala-mode
+  :ensure t
   :defer t
-  :ensure t)
+  :mode ("\\.scala\\'" . scala-mode)
+  :config (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
 
+;; rust
 (use-package rust-mode
   :defer t
+  :mode "\\.rs\\'"
   :ensure t)
 
 
@@ -150,8 +163,27 @@
 (use-package multiple-cursors
   :ensure t)
 
+;; snipets
 (use-package yasnippet
   :ensure t)
 
 (use-package yasnippet-snippets
+  :ensure t)
+
+;; gnuplot
+(use-package gnuplot
+  :commands gnuplot-mode
+  :defer t
+  :ensure t)
+
+;; ocaml
+(use-package tuareg
+  :ensure t
+  :defer t
+  :mode ("\\.ml\\'" . tuareg-mode))
+
+;; json
+(use-package json-mode
+  :mode "\\.json\\'"
+  :defer t
   :ensure t)
