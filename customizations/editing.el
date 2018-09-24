@@ -187,3 +187,5 @@
   :mode "\\.json\\'"
   :defer t
   :ensure t)
+
+(setq org-plantuml-jar-path (expand-file-name "~/tools/plantuml.jar"))

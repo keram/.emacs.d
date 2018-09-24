@@ -37,13 +37,15 @@
    (clojure . t)
    (shell . t)
    (gnuplot . t)
+   (plantuml . t)
    (js . t)
    (sql . t)
    (ruby . t)))
 
 (setq org-confirm-babel-evaluate nil
       org-src-fontify-natively t
-      org-src-tab-acts-natively t)
+      org-src-tab-acts-natively t
+      org-babel-clojure-backend 'cider)
 
 (setq org-directory "~/docs/org"
       org-default-notes-file (concat org-directory "/" "refile.org")
@@ -110,3 +112,14 @@
 
 
 ;; (use-package org-plus-contrib)
+;; ((agenda . " %i %-12:c%?-12t% s")
+;;  (todo . " %i %-12:c")
+;;  (tags . " %i %-12:c")
+;;  (search . " %i %-12:c"))
+
+(setq org-agenda-prefix-format '(
+  (agenda  . " • ")
+  (timeline  . "  % s")
+  (todo  . "")
+  (tags  . " %i %-12:c")
+  (search . " %i %-12:c")))
