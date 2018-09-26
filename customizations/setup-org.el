@@ -100,6 +100,17 @@
   )
 
 (run-with-idle-timer 300 t 'jump-to-org-agenda)
+(defun mla/org-auto-exclude-function (tag)
+  "Automatic task exclusion in the agenda with / RET"
+  (and (cond
+        ((string= tag "life")
+         t)
+        ((string= tag "@life")
+         t))
+       (concat "-" tag)))
+
+(setq org-agenda-auto-exclude-function 'mla/org-auto-exclude-function)
+
 
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)"
@@ -110,7 +121,10 @@
                         "POSTPONED(p)"
                         ))))
 
-
+(defun yashi/org-agenda (&optional arg)
+  (interactive "P")
+  (let ((org-agenda-tag-filter-preset '("-life" "-@life")))
+   (org-agenda arg "a")))
 ;; (use-package org-plus-contrib)
 ;; ((agenda . " %i %-12:c%?-12t% s")
 ;;  (todo . " %i %-12:c")
