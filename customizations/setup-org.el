@@ -39,6 +39,8 @@
    (gnuplot . t)
    (plantuml . t)
    (js . t)
+   (dot . t)
+   (ditaa . t)
    (sql . t)
    (ruby . t)))
 
@@ -59,7 +61,7 @@
       org-use-fast-todo-selection t
       org-enforce-todo-dependencies t
       org-ellipsis "⤵")
-
+(setq org-ditaa-jar-path "~/tools/ditaa.jar")
 (setq org-refile-targets
      (quote ((nil :maxlevel . 2)
        (org-agenda-files :maxlevel . 2))))
