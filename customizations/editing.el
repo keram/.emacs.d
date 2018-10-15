@@ -161,7 +161,9 @@
 
 ;; multi  line edit
 (use-package multiple-cursors
-  :ensure t)
+  :ensure t
+  :bind (("C-c m c" . mc/edit-lines))
+)
 
 ;; snipets
 (use-package yasnippet

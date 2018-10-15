@@ -31,6 +31,8 @@
 
 (require 'org)
 
+(require 'org-protocol)
+
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((emacs-lisp . t)
@@ -101,7 +103,7 @@
   ;;    (org-agenda-goto-calendar)))
   )
 
-(run-with-idle-timer 300 t 'jump-to-org-agenda)
+(run-with-idle-timer 900 t 'jump-to-org-agenda)
 (defun mla/org-auto-exclude-function (tag)
   "Automatic task exclusion in the agenda with / RET"
   (and (cond

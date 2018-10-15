@@ -8,7 +8,19 @@
                 ;; Prompt for tag and language
                 "* %?\t%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
               ("d" "Diary" entry (file+datetree "~/docs/org/diary.org")
-               "* %?\n%U\n"))))
+               "* %?\n%U\n")
+              ("p" "org-protocol" entry (file+headline "~/docs/org/refile.org" "Notes")
+               "* %a\n%U\n%:initial\n" :immediate-finish t)
+              ("L" "org-protocol" entry (file+headline org-default-notes-file "Links")
+               "* %a\n%U\n%:initial\n" :immediate-finish t)
+              ("w"
+               "Default template"
+               entry
+               (file+headline org-default-notes-file "Notes")
+               "* %^{Title}\n\n  Source: %u, %c\n\n  %i"
+               :empty-lines 1)
+              )))
+
 
 ;; Remove empty LOGBOOK drawers on clock out
 (defun bh/remove-empty-drawer-on-clock-out ()
@@ -25,3 +37,4 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
+(setq org-protocol-default-template-key "p")
