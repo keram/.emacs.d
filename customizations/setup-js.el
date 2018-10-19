@@ -12,7 +12,7 @@
 )
 
 (use-package js-doc
-  :defer t  
+  :defer t
   :ensure t)
 
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
@@ -32,3 +32,13 @@
 ;;   (add-hook 'web-mode-hook  'my-web-mode-hook)
 )
 
+;; (defun test-javascript ()
+;;   (concat "npm run test --prefix " (file-at-git-root "")))
+
+;; (add-hook ;; 'js2-mode
+;;           -hook
+;;           (lambda ()
+;;             (set (make-local-variable 'testing-command)
+;;                  (test-javascript))))
+
+(add-to-list 'interpreter-mode-alist '("node" . js2-mode))
