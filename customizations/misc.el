@@ -42,3 +42,9 @@
 
 ;; https://emacs.stackexchange.com/questions/28/safe-way-to-enable-local-variables
 (setq enable-local-variables :safe)
+(setq safe-local-variable-values '((encoding . utf-8)))
+((string-equal system-type "gnu/linux") ; Linux
+ (progn
+   (setq desktop-base-file-name ".emacs.linux.desktop")
+   )
+ )
