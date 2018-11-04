@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: test wrapper
+# key: tst
+# group: es6
+# --
+test('${1:arg}', () => {
+    expect(${2:arg}).$0;
+});

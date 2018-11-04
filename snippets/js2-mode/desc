@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: describe test
+# key: dsc
+# group: es6
+# --
+
+describe('${1:arg}', () => {
+    $0
+});
