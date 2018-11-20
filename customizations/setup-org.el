@@ -123,7 +123,8 @@
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)"
                         "IN_PROGRESS(i)"
-                        "|"
+
+         "|"
                         "DONE(d)"
                         "CANCELLED(c)"
                         "POSTPONED(p)"
