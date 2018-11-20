@@ -12,6 +12,10 @@
   :defer t
   :ensure t)
 
+(use-package ox-reveal
+  :defer t
+  :ensure t)
+
 (use-package org-present
   :defer t
   :ensure t
