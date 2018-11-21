@@ -1,18 +1,21 @@
 ;; javascript / html
 (use-package tagedit
+  :defer t
   :ensure t)
 
 (use-package json-mode
+  :defer t
   :ensure t)
 
 (use-package js2-mode
+  :defer t
   :ensure t
   :config
   (add-hook 'js-mode-hook 'subword-mode)
 )
 
 (use-package js-doc
-  :defer t  
+  :defer t
   :ensure t)
 
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
@@ -31,4 +34,3 @@
 ;;   :config
 ;;   (add-hook 'web-mode-hook  'my-web-mode-hook)
 )
-

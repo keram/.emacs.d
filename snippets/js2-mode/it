@@ -1,0 +1,10 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: bdd test wrapper
+# key: it
+# group: es6
+# --
+it('${1:descrtiption}', () => {
+    const ${2:subject} = ${3:value};
+
+    expect($2).$0;
+});
