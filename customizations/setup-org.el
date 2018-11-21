@@ -12,6 +12,10 @@
   :defer t
   :ensure t)
 
+(use-package ox-reveal
+  :defer t
+  :ensure t)
+
 (use-package org-present
   :defer t
   :ensure t
@@ -119,7 +123,8 @@
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)"
                         "IN_PROGRESS(i)"
-                        "|"
+
+         "|"
                         "DONE(d)"
                         "CANCELLED(c)"
                         "POSTPONED(p)"

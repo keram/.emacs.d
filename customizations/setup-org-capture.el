@@ -13,14 +13,9 @@
                "* %a\n%U\n%:initial\n" :immediate-finish t)
               ("L" "org-protocol" entry (file+headline org-default-notes-file "Links")
                "* %a\n%U\n%:initial\n" :immediate-finish t)
-              ("w"
-               "Default template"
-               entry
-               (file+headline org-default-notes-file "Notes")
-               "* %^{Title}\n\n  Source: %u, %c\n\n  %i"
-               :empty-lines 1)
-              )))
-
+              ("w" "Work Diary" entry (file+datetree "~/docs/org/work.org")
+               "* %?\n%U\n")
+	)))
 
 ;; Remove empty LOGBOOK drawers on clock out
 (defun bh/remove-empty-drawer-on-clock-out ()
