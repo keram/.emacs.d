@@ -84,11 +84,11 @@
         (setq projectile-enable-caching t)
 )
 
-(projectile-register-project-type 'npm '("package.json")
-                                  :compile "npm install"
-                                  :test "npm test"
-                                  :run "npm run start"
-                                  :test-suffix ".unit")
+;; (projectile-register-project-type 'npm '("package.json")
+;;                                   :compile "npm install"
+;;                                   :test "npm test"
+;;                                   :run "npm run start"
+;;                                   :test-suffix ".unit")
 
 (use-package ag
   :ensure t)
