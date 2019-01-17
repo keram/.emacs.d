@@ -77,12 +77,17 @@
 ;; projectile everywhere!
 (use-package projectile
   :ensure t
-;;  :bind (("C-p s" . projectile-switch-open-project)
-;;	 ("C-x p" . projectile-switch-project))
+  :bind (
+         ;; ("C-p s" . projectile-switch-open-project)
+         ;; ("C-x p" . projectile-switch-project)
+         ("C-c p" . projectile-command-map))
   :config
-        (projectile-global-mode)
-        (setq projectile-enable-caching t)
-)
+  (projectile-global-mode)
+  (setq projectile-enable-caching t)
+  )
+
+;; (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+;; (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;; (projectile-register-project-type 'npm '("package.json")
 ;;                                   :compile "npm install"
