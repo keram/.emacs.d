@@ -146,3 +146,9 @@
   (todo  . "")
   (tags  . " %i %-12:c")
   (search . " %i %-12:c")))
+
+(add-hook 'calendar-load-hook
+              (lambda ()
+                (calendar-set-date-style 'european)))
+
+(setq calendar-week-start-day 1)
