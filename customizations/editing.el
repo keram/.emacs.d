@@ -92,8 +92,13 @@
 
 (use-package magit
   :ensure t
-;;  :bind (("C-x g" . magit-status))
-)
+  :config
+  ;; https://magit.vc/manual/magit/Performance.html#Performance
+  (remove-hook 'server-switch-hook 'magit-commit-diff)
+  (setq magit-refresh-status-buffer nil)
+  (setq vc-handled-backends nil)
+  :bind (("C-x C-g" . magit-status))
+  )
 
 (use-package markdown-mode
   :defer t
