@@ -97,7 +97,7 @@
   (remove-hook 'server-switch-hook 'magit-commit-diff)
   (setq magit-refresh-status-buffer nil)
   (setq vc-handled-backends nil)
-  :bind (("C-x C-m" . magit-status))
+  :bind (("C-x C-M-g" . magit-status))
   )
 
 (use-package markdown-mode
