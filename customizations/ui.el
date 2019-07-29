@@ -10,8 +10,6 @@
 (tool-bar-mode -1)
 
 ;; Show line numbers
-;; (global-linum-mode)
-;; Faster line numbers mode
 ;; (global-display-line-numbers-mode)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
