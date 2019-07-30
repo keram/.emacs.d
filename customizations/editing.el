@@ -45,13 +45,6 @@
 
 (setq auto-save-default nil)
 
-;; ;; comments
-;; (defun toggle-comment-on-line ()
-;;   "comment or uncomment current line"
-;;   (interactive)
-;;   (comment-or-uncomment-region (line-beginning-position) (line-end-position)))
-;; (global-set-key (kbd "C-;") 'toggle-comment-on-line)
-
 (global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
 
 ;; yay rainbows!
@@ -92,8 +85,19 @@
 
 (use-package magit
   :ensure t
-;;  :bind (("C-x g" . magit-status))
-)
+  :config
+  ;; https://magit.vc/manual/magit/Performance.html#Performance
+  (remove-hook 'server-switch-hook 'magit-commit-diff)
+  (setq magit-refresh-status-buffer nil)
+  (setq vc-handled-backends nil)
+  :bind (("C-x C-M-g" . magit-status))
+  )
+
+;; popup commit message at current line
+;; https://github.com/syohex/emacs-git-messenger
+(use-package git-messenger
+  :defer t
+  :ensure t)
 
 (use-package markdown-mode
   :defer t
@@ -276,3 +280,17 @@
   :ensure t)
 
 (setq org-plantuml-jar-path (expand-file-name "~/tools/plantuml.jar"))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; kill line if no region active                                          ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; http://emacs-fu.blogspot.co.uk/2009/11/copying-lines-without-selecting-them.html
+(defadvice kill-region (before slick-cut activate compile)
+  "When called interactively with no active region, kill a single line instead."
+  (interactive
+   (if mark-active (list (region-beginning) (region-end))
+     (list (line-beginning-position)
+           (line-beginning-position 2)))))
+
+;; cycle through amounts of spacing
+(global-set-key (kbd "M-SPC") 'cycle-spacing)

@@ -35,8 +35,22 @@
                   (1 font-lock-keyword-face))
                  ("(\\(background?\\)"
                   (1 font-lock-keyword-face))))
-              (define-clojure-indent (fact 1))
-              (define-clojure-indent (facts 1))))
+              (define-clojure-indent
+                (fact 1)
+                (facts 1)
+                (defroutes 'defun)
+                (GET 2)
+                (POST 2)
+                (PUT 2)
+                (DELETE 2)
+                (HEAD 2)
+                (ANY 2)
+                (OPTIONS 2)
+                (PATCH 2)
+                (rfn 2)
+                (let-routes 1)
+                (context 2))
+              ))
   (add-hook 'clojure-mode-hook #'cider-mode)
   (add-hook 'clojure-mode-hook 'my-pretty-lambda-clojure))
 
@@ -58,3 +72,18 @@
   (setq prettify-symbols-alist
         ;; λ
         '(("fn" . 955))))
+
+;; https://github.com/weavejester/compojure/wiki/Emacs-indentation
+;; (define-clojure-indent
+;;   (defroutes 'defun)
+;;   (GET 2)
+;;   (POST 2)
+;;   (PUT 2)
+;;   (DELETE 2)
+;;   (HEAD 2)
+;;   (ANY 2)
+;;   (OPTIONS 2)
+;;   (PATCH 2)
+;;   (rfn 2)
+;;   (let-routes 1)
+;;   (context 2))

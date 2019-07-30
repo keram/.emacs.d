@@ -10,8 +10,6 @@
 (tool-bar-mode -1)
 
 ;; Show line numbers
-;; (global-linum-mode)
-;; Faster line numbers mode
 ;; (global-display-line-numbers-mode)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
@@ -100,3 +98,10 @@
 (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
 
 (define-key dired-mode-map (kbd "^") (lambda () (interactive) (find-alternate-file "..")))
+
+
+;; ANSI & xterm-256 color text property translator for Emacs
+;; suppose to be better than native ansi-color
+;; https://github.com/atomontage/xterm-color
+(use-package xterm-color
+  :ensure t)

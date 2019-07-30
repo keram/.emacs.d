@@ -24,14 +24,12 @@
             (lambda ()
               (org-present-big)
               (org-display-inline-images)
-              (global-linum-mode -1)
-              (global-hl-line-mode -1)))
+              ))
   (add-hook 'org-present-mode-quit-hook
             (lambda ()
               (org-present-small)
               (org-remove-inline-images)
-              (global-linum-mode)
-              (global-hl-line-mode 1))))
+              )))
 
 (require 'org)
 
@@ -146,3 +144,9 @@
   (todo  . "")
   (tags  . " %i %-12:c")
   (search . " %i %-12:c")))
+
+(add-hook 'calendar-load-hook
+              (lambda ()
+                (calendar-set-date-style 'european)))
+
+(setq calendar-week-start-day 1)
