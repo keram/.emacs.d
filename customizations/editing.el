@@ -294,3 +294,10 @@
 
 ;; cycle through amounts of spacing
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
+
+(use-package key-chord
+  :defer t
+  :ensure t)
+
+(key-chord-define-global "99" "(")
+(key-chord-define-global "00" ")")
