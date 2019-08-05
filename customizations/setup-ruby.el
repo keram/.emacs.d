@@ -24,6 +24,15 @@
 
 (setq ruby-insert-encoding-magic-comment nil)
 (setq ruby-deep-indent-paren nil)
+;; (setq js-indent-level 4)
+
+(setq-default tab-width 2)
+(setq-default c-basic-offset 2)
+(setq css-indent-offset 2)
+(setq js-indent-level 2)
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-code-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
 
 (use-package rbenv
   :defer t
