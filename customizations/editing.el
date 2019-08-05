@@ -294,3 +294,11 @@
 
 ;; cycle through amounts of spacing
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
+
+(use-package apib-mode
+  :mode "\\.apib\\'"
+  :defer t
+  :ensure t)
+
+;; (autoload 'apib-mode "apib-mode"
+;;         "major mode for editing api blueprint files" t)
