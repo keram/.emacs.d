@@ -300,5 +300,5 @@
   :defer t
   :ensure t)
 
-;; (autoload 'apib-mode "apib-mode"
-;;         "major mode for editing api blueprint files" t)
+(when (string= system-type "darwin")
+  (setq markdown-command "/usr/bin/pandoc"))
