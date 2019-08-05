@@ -99,6 +99,10 @@
 
 (define-key dired-mode-map (kbd "^") (lambda () (interactive) (find-alternate-file "..")))
 
+;; OSx ls does not support --dired; see ‘dired-use-ls-dired’ for more details.
+;; https://stackoverflow.com/questions/25125200/emacs-error-ls-does-not-support-dired
+(when (string= system-type "darwin")
+  (setq dired-use-ls-dired nil))
 
 ;; ANSI & xterm-256 color text property translator for Emacs
 ;; suppose to be better than native ansi-color
