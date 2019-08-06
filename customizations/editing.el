@@ -307,6 +307,13 @@
   :defer t
   :ensure t)
 
-(key-chord-define-global "q9" "(")
 (key-chord-define-global "q0" ")")
+(key-chord-define-global "q9" "(")
 (key-chord-define-global "q8" "*")
+(key-chord-define-global "q7" "&")
+(key-chord-define-global "q6" "^")
+(key-chord-define-global "q5" "%")
+(key-chord-define-global "q;" ":")
+(key-chord-define-global "q'" "@")
+(key-chord-define-global "q#" "~")
+(setq key-chord-two-keys-delay 0.3)
