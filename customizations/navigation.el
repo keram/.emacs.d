@@ -110,4 +110,21 @@
          (w1b (window-buffer w1))
          (w2b (window-buffer w2)))
     (set-window-buffer w1 w2b)
-         (set-window-buffer w2 w1b)))
+    (set-window-buffer w2 w1b)))
+
+
+;; https://github.com/miloss/dotfiles/blob/master/.emacs.d/emacs-libraries.el#L9-L22
+;; SrSpeedbar
+(require 'sr-speedbar)
+(speedbar-add-supported-extension ".hs")
+(setq sr-speedbar-skip-other-window-p t)
+
+(defun select-next-window ()
+  (other-window 1))
+
+(defun my-sr-speedbar-open-hook ()
+  (add-hook 'speedbar-before-visiting-file-hook 'select-next-window t)
+  (add-hook 'speedbar-before-visiting-tag-hook 'select-next-window t))
+
+(advice-add 'sr-speedbar-open :after #'my-sr-speedbar-open-hook)
+(advice-add 'sr-speedbar-open :after (lambda () (other-window 1)))

@@ -32,8 +32,8 @@
               )))
 
 (require 'org)
-
 (require 'org-protocol)
+(require 'ox-reveal)
 
 (org-babel-do-load-languages
  'org-babel-load-languages

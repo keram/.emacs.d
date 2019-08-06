@@ -302,3 +302,11 @@
 
 (when (string= system-type "darwin")
   (setq markdown-command "/usr/bin/pandoc"))
+
+(use-package key-chord
+  :defer t
+  :ensure t)
+
+(key-chord-define-global "q9" "(")
+(key-chord-define-global "q0" ")")
+(key-chord-define-global "q8" "*")
