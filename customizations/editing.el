@@ -317,3 +317,20 @@
 (key-chord-define-global "q'" "@")
 (key-chord-define-global "q#" "~")
 (setq key-chord-two-keys-delay 0.3)
+
+;; https://github.com/browse-kill-ring/browse-kill-ring
+;; map M-y to browse-kill-ring by adding the form (browse-kill-ring-default-keybindings) to your ~/.emacs.
+;; Alternatively you can map browse-kill-ring to another key combination,
+;; for example (global-set-key "\C-cy" 'browse-kill-ring).
+(use-package browse-kill-ring
+  :defer t
+  :ensure t)
+
+;; https://www.emacswiki.org/emacs/SaveHist
+;;Save History--------------------------------
+;;Save mode-line history between sessions. Very good!
+(setq savehist-additional-variables    ;; Also save ...
+  '(search-ring regexp-search-ring)    ;; ... searches
+  )
+(savehist-mode t)                      ;; do this before evaluation
+;;--------------------------------------------

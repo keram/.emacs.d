@@ -4,9 +4,6 @@
 (global-set-key (kbd "C-x O") (lambda ()
                                 (interactive)
                                 (other-window -1)))
-;; zoom window like tmux
-(global-set-key (kbd "C-x C-z") 'zoom-window-zoom)
-
 ;; ;; Turn on recent file mode so that you can more easily switch to
 ;; ;; recently edited files when you first start emacs
 ;; (setq recentf-save-file (concat user-emacs-directory ".recentf"))

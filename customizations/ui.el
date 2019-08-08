@@ -86,9 +86,13 @@
 
 (global-prettify-symbols-mode 1)
 
-;; tmux zoom
+;; tmux like zoom
+;; https://github.com/syohex/emacs-zoom-window
 (use-package zoom-window
-  :ensure t)
+  :ensure t
+  :bind ("C-x C-z" . zoom-window-zoom)
+  :config (custom-set-variables
+           '(zoom-window-mode-line-color "Black")))
 
 (defun set-window-width (n)
   "Set the selected window's width."
