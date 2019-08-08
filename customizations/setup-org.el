@@ -51,7 +51,10 @@
 (setq org-confirm-babel-evaluate nil
       org-src-fontify-natively t
       org-src-tab-acts-natively t
-      org-babel-clojure-backend 'cider)
+      org-babel-clojure-backend 'cider
+      ;; no extra indentation for contents in src code blocks
+      org-edit-src-content-indentation 0)
+
 
 (setq org-directory "~/docs/org"
       org-default-notes-file (concat org-directory "/" "refile.org")

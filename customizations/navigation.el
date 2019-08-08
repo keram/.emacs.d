@@ -125,5 +125,8 @@
 
 ;; (advice-add 'sr-speedbar-open :after #'my-sr-speedbar-open-hook)
 ;; (advice-add 'sr-speedbar-open :after (lambda () (other-window 1)))
-(setq speedbar-show-unknown-files t) ; show all files
-(setq speedbar-use-images nil)
+(use-package sr-speedbar
+  :ensure t
+  :defer t
+  :config (setq speedbar-show-unknown-files t
+                speedbar-use-images nil))
