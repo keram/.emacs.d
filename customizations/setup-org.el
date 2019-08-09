@@ -153,3 +153,35 @@
                 (calendar-set-date-style 'european)))
 
 (setq calendar-week-start-day 1)
+(use-package org-web-tools :ensure t)
+
+(use-package org-ref
+  :after org
+  :ensure t
+  ;; :chords
+  ;; (("uu"  . org-ref-cite-hydra/body))
+  ;; :init
+  ;; (setq org-ref-completion-library 'org-ref-ivy-cite
+  ;;       org-ref-notes-directory "~/Dropbox/org/work/biblio"
+  ;;       org-ref-bibliography-notes "~/Dropbox/org/work/biblio/index.org"
+  ;;       org-ref-default-bibliography '("~/Dropbox/org/work/biblio/index.bib")
+  ;;       org-ref-pdf-directory "~/Dropbox/org/work/biblio/lib/")
+  :config
+  (add-hook 'org-export-before-parsing-hook 'orcp-citeproc))
+(use-package polymode
+  :ensure t
+  :config
+  (require 'poly-markdown))
+
+;;https://github.com/alphapapa/org-super-agenda
+(use-package org-super-agenda
+  :ensure t
+  :after (org org-agenda)
+  :config
+  (org-super-agenda-mode)
+  (setq org-super-agenda-groups
+
+        '((:name "Important tasks ":priority "A")
+          (:name "SynSIG" :tag "SynSIG")
+          (:auto-category t)
+         )))
