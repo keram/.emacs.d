@@ -111,6 +111,7 @@
   ;;  (unless (get-buffer-window buf)
   ;;    (org-agenda-goto-calendar)))
   )
+(setq org-agenda-hide-tags-regexp "work\\|life")
 
 (run-with-idle-timer 900 t 'jump-to-org-agenda)
 (defun mla/org-auto-exclude-function (tag)
@@ -182,5 +183,8 @@
   (org-super-agenda-mode)
   (setq org-super-agenda-groups
         '((:name "Work" :tag ("work" "@work" ":@work:"))
+          (:name "GTD" :category ("gtd"))
+          (:name "Other" :category ("regular"))
+          (:name "")
           (:auto-category t)
           )))
