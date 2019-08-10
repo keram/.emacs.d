@@ -27,6 +27,11 @@
 (add-to-list 'load-path "~/.emacs.d/themes")
 
 (load-theme 'tango-dark t)
+;; the amount of fontification applied by Font Lock mode,
+;; for major modes that support this feature.
+;; t, meaning “as high as possible” (the default).
+;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Font-Lock.html
+(setq font-lock-maximum-decoration t)
 ;; (use-package solarized-theme
 ;;   :ensure t)
 ;; (load-theme 'solarized-dark t)
