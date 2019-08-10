@@ -2,11 +2,15 @@
   :defer t
   :ensure t
   :config
-  (add-hook 'org-mode-hook 'org-bullets-mode))
+  (add-hook 'org-mode-hook 'org-bullets-mode)
+  (require 'org)
+  (require 'org-protocol))
 
 (use-package org-bullets
   :defer t
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook 'org-bullets-mode))
 
 (use-package org-plus-contrib
   :defer t
@@ -14,7 +18,8 @@
 
 (use-package ox-reveal
   :defer t
-  :ensure t)
+  :ensure t
+  :config (require 'ox-reveal))
 
 (use-package org-present
   :defer t
@@ -31,9 +36,6 @@
               (org-remove-inline-images)
               )))
 
-(require 'org)
-(require 'org-protocol)
-(require 'ox-reveal)
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -63,15 +65,17 @@
       org-agenda-skip-deadline-if-done t
       org-agenda-skip-scheduled-if-done t
       org-agenda-skip-timestamp-if-done t
+      org-deadline-warning-days 0
       ;; show current and next day only in agenda view by default
       org-agenda-span 2
       org-use-fast-todo-selection t
       org-enforce-todo-dependencies t
       org-ellipsis "⤵")
+
 (setq org-ditaa-jar-path "~/tools/ditaa.jar")
 (setq org-refile-targets
-     (quote ((nil :maxlevel . 2)
-       (org-agenda-files :maxlevel . 2))))
+      (quote ((nil :maxlevel . 2)
+              (org-agenda-files :maxlevel . 2))))
 
 (add-hook 'after-init-hook
           (lambda ()
@@ -125,7 +129,7 @@
       (quote ((sequence "TODO(t)"
                         "IN_PROGRESS(i)"
 
-         "|"
+                        "|"
                         "DONE(d)"
                         "CANCELLED(c)"
                         "POSTPONED(p)"
@@ -134,7 +138,7 @@
 (defun yashi/org-agenda (&optional arg)
   (interactive "P")
   (let ((org-agenda-tag-filter-preset '("-life" "-@life")))
-   (org-agenda arg "a")))
+    (org-agenda arg "a")))
 ;; (use-package org-plus-contrib)
 ;; ((agenda . " %i %-12:c%?-12t% s")
 ;;  (todo . " %i %-12:c")
@@ -142,32 +146,29 @@
 ;;  (search . " %i %-12:c"))
 
 (setq org-agenda-prefix-format '(
-  (agenda  . " • ")
-  (timeline  . "  % s")
-  (todo  . "")
-  (tags  . " %i %-12:c")
-  (search . " %i %-12:c")))
+                                 (agenda  . " • ")
+                                 (timeline  . "  % s")
+                                 (todo  . "")
+                                 (tags  . " %i %-12:c")
+                                 (search . " %i %-12:c")))
 
 (add-hook 'calendar-load-hook
-              (lambda ()
-                (calendar-set-date-style 'european)))
+          (lambda ()
+            (calendar-set-date-style 'european)))
 
 (setq calendar-week-start-day 1)
+
 (use-package org-web-tools :ensure t)
 
 (use-package org-ref
   :after org
   :ensure t
-  ;; :chords
-  ;; (("uu"  . org-ref-cite-hydra/body))
-  ;; :init
-  ;; (setq org-ref-completion-library 'org-ref-ivy-cite
-  ;;       org-ref-notes-directory "~/Dropbox/org/work/biblio"
-  ;;       org-ref-bibliography-notes "~/Dropbox/org/work/biblio/index.org"
-  ;;       org-ref-default-bibliography '("~/Dropbox/org/work/biblio/index.bib")
-  ;;       org-ref-pdf-directory "~/Dropbox/org/work/biblio/lib/")
   :config
   (add-hook 'org-export-before-parsing-hook 'orcp-citeproc))
+
+(use-package poly-markdown
+  :ensure t)
+
 (use-package polymode
   :ensure t
   :config
@@ -180,8 +181,6 @@
   :config
   (org-super-agenda-mode)
   (setq org-super-agenda-groups
-
-        '((:name "Important tasks ":priority "A")
-          (:name "SynSIG" :tag "SynSIG")
+        '((:name "Work" :tag ("work" "@work" ":@work:"))
           (:auto-category t)
-         )))
+          )))
