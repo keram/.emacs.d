@@ -19,10 +19,13 @@
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;;;; Highlights matching parenthesis
-;;(show-paren-mode 1)
+(show-paren-mode 1)
 ;;
 ;;;; Highlight current line
-;;(global-hl-line-mode 1)
+(global-hl-line-mode t)
+(set-face-background hl-line-face "#2A2A2A")
+(set-face-foreground 'highlight nil)
+
 ;;
 ;; Don't use hard tabs
 (setq-default indent-tabs-mode nil)
