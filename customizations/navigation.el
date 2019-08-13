@@ -129,4 +129,5 @@
   :ensure t
   :defer t
   :config (setq speedbar-show-unknown-files t
+                speedbar-update-flag nil
                 speedbar-use-images nil))
