@@ -85,6 +85,7 @@
 
 (use-package magit
   :ensure t
+  :init (require 'transient)
   :config
   ;; https://magit.vc/manual/magit/Performance.html#Performance
   (remove-hook 'server-switch-hook 'magit-commit-diff)
