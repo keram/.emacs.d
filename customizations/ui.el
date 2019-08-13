@@ -27,6 +27,11 @@
 (add-to-list 'load-path "~/.emacs.d/themes")
 
 (load-theme 'tango-dark t)
+;; the amount of fontification applied by Font Lock mode,
+;; for major modes that support this feature.
+;; t, meaning “as high as possible” (the default).
+;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Font-Lock.html
+(setq font-lock-maximum-decoration t)
 ;; (use-package solarized-theme
 ;;   :ensure t)
 ;; (load-theme 'solarized-dark t)
@@ -85,6 +90,8 @@
         '(("fn" . 955))))
 
 (global-prettify-symbols-mode 1)
+;; http://endlessparentheses.com/new-in-emacs-25-1-have-prettify-symbols-mode-reveal-the-symbol-at-point.html
+(setq prettify-symbols-unprettify-at-point 'right-edge)
 
 ;; tmux like zoom
 ;; https://github.com/syohex/emacs-zoom-window
@@ -113,3 +120,21 @@
 ;; https://github.com/atomontage/xterm-color
 (use-package xterm-color
   :ensure t)
+(setq-default mode-line-format
+              '("%e" ; print error message about full memory.
+                mode-line-front-space
+                ;; mode-line-mule-info
+                ;; mode-line-client
+                ;; mode-line-modified
+                ;; mode-line-remote
+                ;; mode-line-frame-identification
+                mode-line-buffer-identification
+                "   "
+                mode-line-position
+                ;; (vc-mode vc-mode)
+                ;; "  "
+                ;; mode-line-modes
+                "   "
+                ;; mode-line-misc-info
+                ;; battery-mode-line-string
+                mode-line-end-spaces))

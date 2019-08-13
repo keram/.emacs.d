@@ -37,3 +37,10 @@
 (use-package rbenv
   :defer t
   :ensure t)
+
+(use-package rubocop
+  :ensure t
+  :defer t
+  ;; :diminish rubocop-mode
+  :init
+  (add-hook 'ruby-mode-hook 'rubocop-mode))
