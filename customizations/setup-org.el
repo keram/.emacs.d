@@ -188,3 +188,10 @@
           (:name "")
           (:auto-category t)
           )))
+
+(setq org-todo-keyword-faces
+      '(("Asses" . (:foreground "DarkOrange1"))
+        ("Trial" . (:foreground "sea green"))
+        ("Adopt" . (:foreground "light sea green"))
+        ("Hold" . (:foreground "forest green"))
+        ))
