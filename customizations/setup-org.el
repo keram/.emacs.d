@@ -12,9 +12,10 @@
   :config
   (add-hook 'org-mode-hook 'org-bullets-mode))
 
-(use-package org-plus-contrib
-  :defer t
-  :ensure t)
+;; Error (use-package): Cannot load org-plus-contrib
+;; (use-package org-plus-contrib
+;;   :defer t
+;;   :ensure t)
 
 (use-package ox-reveal
   :defer t
@@ -57,11 +58,10 @@
       ;; no extra indentation for contents in src code blocks
       org-edit-src-content-indentation 0)
 
-
 (setq org-directory "~/docs/org"
       org-default-notes-file (concat org-directory "/" "refile.org")
       org-log-done t
-      org-agenda-files (file-expand-wildcards (concat org-directory "/" "*.org"))
+      org-agenda-files (mapcar (lambda (f) (concat org-directory "/" f)) '("regular.org" "gtd.org"))
       org-agenda-skip-deadline-if-done t
       org-agenda-skip-scheduled-if-done t
       ;; no idea what this does so commenting out temporarilty
@@ -148,13 +148,6 @@
   (interactive "P")
   (let ((org-agenda-tag-filter-preset '("-life" "-@life")))
     (org-agenda arg "a")))
-
-(use-package org-plus-contrib
-   :ensure t)
-;; ((agenda . " %i %-12:c%?-12t% s")
-;;  (todo . " %i %-12:c")
-;;  (tags . " %i %-12:c")
-;;  (search . " %i %-12:c"))
 
 (setq org-agenda-prefix-format '(
                                  (agenda  . " • ")
