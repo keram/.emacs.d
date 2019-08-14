@@ -200,3 +200,33 @@
         ("Adopt" . (:foreground "light green"))
         ("Hold" . (:foreground "light slate gray"))
         ))
+
+
+;; in order to add spacing between current day and
+;; following date in org agenda-view. Added \n at beginning of
+;; "\n%-10s %2d %s %4d%s"
+;; taken from https://github.com/jwiegley/org-mode/blob/master/lisp/org-agenda.el#L1177-L1198
+(defun mla/org-agenda-format-date-aligned (date)
+  "Format a DATE string for display in the daily/weekly agenda, or timeline.
+This function makes sure that dates are aligned for easy reading."
+  (require 'cal-iso)
+  (let* ((dayname (calendar-day-name date))
+         (day (cadr date))
+         (day-of-week (calendar-day-of-week date))
+         (month (car date))
+         (monthname (calendar-month-name month))
+         (year (nth 2 date))
+         (iso-week (org-days-to-iso-week
+                    (calendar-absolute-from-gregorian date)))
+         (weekyear (cond ((and (= month 1) (>= iso-week 52))
+                          (1- year))
+                         ((and (= month 12) (<= iso-week 1))
+                          (1+ year))
+                         (t year)))
+         (weekstring (if (= day-of-week 1)
+                         (format " W%02d" iso-week)
+                       "")))
+    (format "\n%-10s %2d %s %4d%s"
+            dayname day monthname year weekstring)))
+
+(setq org-agenda-format-date 'mla/org-agenda-format-date-aligned)
