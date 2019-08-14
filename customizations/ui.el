@@ -120,6 +120,13 @@
 ;; https://github.com/atomontage/xterm-color
 (use-package xterm-color
   :ensure t)
+
+;; looks nice on screenshot but does not work for me on win
+;; https://seagle0128.github.io/doom-modeline/
+;; (use-package doom-modeline
+;;       :ensure t
+;;       :hook (after-init . doom-modeline-mode))
+
 (setq-default mode-line-format
               '("%e" ; print error message about full memory.
                 mode-line-front-space
