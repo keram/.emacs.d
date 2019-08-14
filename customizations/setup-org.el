@@ -64,10 +64,18 @@
       org-agenda-files (file-expand-wildcards (concat org-directory "/" "*.org"))
       org-agenda-skip-deadline-if-done t
       org-agenda-skip-scheduled-if-done t
-      org-agenda-skip-timestamp-if-done t
-      org-deadline-warning-days 0
+      ;; no idea what this does so commenting out temporarilty
+      ;; <2019-08-13 Tue>
+      ;; org-agenda-skip-timestamp-if-done t
+
+      ;;
+      ;; org-deadline-warning-days 0
+
       ;; show current and next day only in agenda view by default
       org-agenda-span 2
+
+      org-agenda-tag-filter-preset '("-RADAR")
+
       org-use-fast-todo-selection t
       org-enforce-todo-dependencies t
       org-ellipsis "⤵")
@@ -140,7 +148,9 @@
   (interactive "P")
   (let ((org-agenda-tag-filter-preset '("-life" "-@life")))
     (org-agenda arg "a")))
-;; (use-package org-plus-contrib)
+
+(use-package org-plus-contrib
+   :ensure t)
 ;; ((agenda . " %i %-12:c%?-12t% s")
 ;;  (todo . " %i %-12:c")
 ;;  (tags . " %i %-12:c")
@@ -186,12 +196,14 @@
           (:name "GTD" :category ("gtd"))
           (:name "Other" :category ("regular"))
           (:name "")
+          (:discard (:category ("radar")))
           (:auto-category t)
           )))
 
 (setq org-todo-keyword-faces
-      '(("Asses" . (:foreground "DarkOrange1"))
-        ("Trial" . (:foreground "sea green"))
-        ("Adopt" . (:foreground "light sea green"))
-        ("Hold" . (:foreground "forest green"))
+      '(("Asses" . (:foreground "LightGoldenrod2"))
+        ("Trial" . (:foreground "DarkOrchid1"))
+        ;; ("Trial" . (:foreground "light slate blue"))
+        ("Adopt" . (:foreground "light green"))
+        ("Hold" . (:foreground "light slate gray"))
         ))
