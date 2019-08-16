@@ -62,6 +62,7 @@
       org-default-notes-file (concat org-directory "/" "refile.org")
       org-log-done t
       org-agenda-files (mapcar (lambda (f) (concat org-directory "/" f)) '("regular.org" "gtd.org"))
+      ;; org-agenda-files (file-expand-wildcards (concat org-directory "/" "*.org"))
       org-agenda-skip-deadline-if-done t
       org-agenda-skip-scheduled-if-done t
       ;; no idea what this does so commenting out temporarilty
@@ -80,10 +81,16 @@
       org-enforce-todo-dependencies t
       org-ellipsis "⤵")
 
+(setq org-agenda-text-search-extra-files
+      (set-difference
+       (file-expand-wildcards (concat org-directory "/" "*.org"))
+       org-agenda-files))
+
 (setq org-ditaa-jar-path "~/tools/ditaa.jar")
+(setq my-org-files (file-expand-wildcards (concat org-directory "/" "*.org")))
 (setq org-refile-targets
       (quote ((nil :maxlevel . 2)
-              (org-agenda-files :maxlevel . 2))))
+              (my-org-files :maxlevel . 2))))
 
 (add-hook 'after-init-hook
           (lambda ()
