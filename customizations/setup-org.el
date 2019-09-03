@@ -237,3 +237,5 @@ This function makes sure that dates are aligned for easy reading."
             dayname day monthname year weekstring)))
 
 (setq org-agenda-format-date 'mla/org-agenda-format-date-aligned)
+
+(setq org-plantuml-jar-path (expand-file-name "~/tools/plantuml.jar"))
