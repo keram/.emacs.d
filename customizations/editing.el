@@ -86,6 +86,17 @@
   (setq company-dabbrev-downcase nil)
 )
 
+;; create tags file in project root,
+;; find . -name "*.[ch]" | ctags -e -L -
+;; https://github.com/redguardtoo/company-ctags
+(use-package company-ctags
+  :ensure t
+)
+
+;; (eval-after-load 'company
+;;   '(progn
+;;      (company-ctags-auto-setup)))
+
 (use-package magit
   :ensure t
   :init (require 'transient)
@@ -176,10 +187,15 @@
 
 ;; snipets
 (use-package yasnippet
-  :ensure t)
+  :ensure t
+  :hook ((prog-mode . yas-minor-mode)
+           (conf-mode . yas-minor-mode)
+           (text-mode . yas-minor-mode)
+           (snippet-mode . yas-minor-mode)))
 
 (use-package yasnippet-snippets
-  :ensure t)
+  :ensure t
+  :after (yasnippet))
 
 ;; gnuplot
 (use-package gnuplot
@@ -312,6 +328,7 @@
 
 (key-chord-define-global "q0" ")")
 (key-chord-define-global "q9" "(")
+(key-chord-define-global "q-" "_")
 (key-chord-define-global "q8" "*")
 (key-chord-define-global "q7" "&")
 (key-chord-define-global "q6" "^")
@@ -319,6 +336,7 @@
 (key-chord-define-global "q;" ":")
 (key-chord-define-global "q'" "@")
 (key-chord-define-global "q#" "~")
+(key-chord-define-global "q," " <- ")
 (setq key-chord-two-keys-delay 0.3)
 
 ;; https://github.com/browse-kill-ring/browse-kill-ring
@@ -337,3 +355,27 @@
   )
 (savehist-mode t)                      ;; do this before evaluation
 ;;--------------------------------------------
+
+
+;; emacs speak statistics
+(use-package ess
+  :ensure t
+  :defer t)
+
+;; https://github.com/pashky/restclient.el
+;; https://erick.navarro.io/blog/testing-an-api-with-emacs-and-restclient/
+(use-package restclient
+  :ensure t
+  :defer t)
+
+;; https://erick.navarro.io/blog/minimal-setup-for-elixir-development-in-emacs/
+(use-package elixir-mode
+  :ensure t
+  :bind (:map elixir-mode-map
+              ("C-c C-f" . elixir-format)))
+
+;; https://github.com/jacktasia/dumb-jump
+(use-package dumb-jump
+  :ensure t
+  :init
+  (setq dumb-jump-selector 'helm))
