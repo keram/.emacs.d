@@ -319,6 +319,7 @@
 (key-chord-define-global "q;" ":")
 (key-chord-define-global "q'" "@")
 (key-chord-define-global "q#" "~")
+(key-chord-define-global "q-" "_")
 (setq key-chord-two-keys-delay 0.3)
 
 ;; https://github.com/browse-kill-ring/browse-kill-ring
