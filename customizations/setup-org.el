@@ -37,6 +37,11 @@
               (org-remove-inline-images)
               )))
 
+;; https://github.com/alf/ob-restclient.el
+(use-package ob-restclient
+  :defer t
+  :ensure t)
+
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -49,7 +54,9 @@
    (dot . t)
    (ditaa . t)
    (sql . t)
-   (ruby . t)))
+   (ruby . t)
+   (restclient . t)
+   (R . t)))
 
 (setq org-confirm-babel-evaluate nil
       org-src-fontify-natively t
