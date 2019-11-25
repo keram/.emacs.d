@@ -7,7 +7,7 @@
 (set-terminal-coding-system 'utf-8-unix)
 (set-keyboard-coding-system 'utf-8-unix)
 (set-default-coding-systems 'utf-8-unix)
-(set-terminal-coding-system 'utf-8-unix)
+(set-selection-coding-system 'utf-8-unix)
 
 (setq buffer-file-coding-system 'utf-8-unix)
 (setq default-buffer-file-coding-system 'utf-8-unix)
@@ -48,7 +48,8 @@
 
 (setq auto-save-default nil)
 
-(global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
+;; C-x C-; is default comment command
+;; (global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
 
 ;; yay rainbows!
 ;;(global-rainbow-delimiters-mode t)
@@ -79,7 +80,7 @@
 
 (use-package company
   :ensure t
-;;  :bind (([C-S-i] . company-complete))
+  ;;  :bind (([C-S-i] . company-complete))
   :config
   (add-hook 'after-init-hook 'global-company-mode)
   (setq company-idle-delay 0.2)
@@ -91,11 +92,12 @@
 ;; https://github.com/redguardtoo/company-ctags
 (use-package company-ctags
   :ensure t
+  :after 'company-ctags-auto-setup
 )
 
 ;; (eval-after-load 'company
 ;;   '(progn
-;;      (company-ctags-auto-setup)))
+;;      ))
 
 (use-package magit
   :ensure t
@@ -379,3 +381,10 @@
   :ensure t
   :init
   (setq dumb-jump-selector 'helm))
+
+
+(setq skeleton-pair t)
+(global-set-key "(" 'skeleton-pair-insert-maybe)
+(global-set-key "[" 'skeleton-pair-insert-maybe)
+(global-set-key "{" 'skeleton-pair-insert-maybe)
+(global-set-key (kbd "\"") 'skeleton-pair-insert-maybe)
