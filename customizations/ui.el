@@ -145,3 +145,13 @@
                 ;; mode-line-misc-info
                 ;; battery-mode-line-string
                 mode-line-end-spaces))
+
+;; https://github.com/sabof/stripe-buffer
+;; More easily visualize tabular data.
+;; (use-package stripe-buffer :ensure t)
+
+;; https://github.com/alpaker/Fill-Column-Indicator
+(use-package fill-column-indicator
+  :ensure t
+  :config
+  (setq fci-rule-column 79))

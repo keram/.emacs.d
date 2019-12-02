@@ -358,7 +358,7 @@
   )
 (savehist-mode t)                      ;; do this before evaluation
 ;;--------------------------------------------
-
+(setq history-delete-duplicates t)
 
 ;; emacs speak statistics
 (use-package ess
@@ -389,3 +389,37 @@
 (global-set-key "[" 'skeleton-pair-insert-maybe)
 (global-set-key "{" 'skeleton-pair-insert-maybe)
 (global-set-key (kbd "\"") 'skeleton-pair-insert-maybe)
+
+;; Every file must end with a newline.
+(setq require-final-newline t)
+
+;; https://github.com/browse-kill-ring/browse-kill-ring
+(use-package browse-kill-ring :ensure t
+  ;; :general
+  ;; ("M-y"  'browse-kill-ring)
+  :config
+  (browse-kill-ring-default-keybindings)
+  (setq browse-kill-ring-highlight-current-entry t)
+  (setq browse-kill-ring-highlight-inserted-item t)
+  (setq browse-kill-ring-show-preview nil)
+  (setq browse-kill-ring-separator
+        ".-~-.-~-.-~-.-~-.
+"))
+
+;; Git config files.
+;; from https://github.com/pdcawley/dotemacs
+(use-package gitignore-mode :ensure t)
+(use-package gitconfig-mode :ensure t)
+(use-package gitattributes-mode :ensure t)
+
+(use-package git-gutter+ :ensure t
+  :diminish git-gutter+-mode
+  :diminish git-gutter-mode
+  :init
+  ;; (bindings|add-toggle git-gutter :mode git-gutter+-mode :toggle-keys "Tg")
+  (global-git-gutter+-mode 1)
+  )
+
+(use-package git-gutter-fringe+ :ensure t
+  :config
+  (git-gutter-fr+-minimal))
