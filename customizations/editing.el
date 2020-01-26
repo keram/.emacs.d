@@ -344,8 +344,20 @@
 (key-chord-define-global "q'" "@")
 (key-chord-define-global "q#" "~")
 (key-chord-define-global "q-" "_")
+(key-chord-define-global "q=" "+")
+(key-chord-define-global "j2" "\"")
+(key-chord-define-global "j3" "£")
+(key-chord-define-global "j4" "$")
+(key-chord-define-global "j5" "%")
+(key-chord-define-global "q," "<")
+(key-chord-define-global "q." ">")
+(key-chord-define-global "q[" "{")
+(key-chord-define-global "q]" "}")
+(key-chord-define-global "w." "-> ")
+(key-chord-define-global "w," "<- ")
 
-(setq key-chord-two-keys-delay 0.3)
+(setq key-chord-two-keys-delay 0.2)
+(setq key-chord-one-key-delay 0.3)
 
 ;; https://github.com/browse-kill-ring/browse-kill-ring
 ;; map M-y to browse-kill-ring by adding the form (browse-kill-ring-default-keybindings) to your ~/.emacs.
