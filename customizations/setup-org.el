@@ -139,7 +139,7 @@
   )
 (setq org-agenda-hide-tags-regexp "work\\|life")
 
-(run-with-idle-timer 900 t 'jump-to-org-agenda)
+(run-with-idle-timer 1800 t 'jump-to-org-agenda)
 (defun mla/org-auto-exclude-function (tag)
   "Automatic task exclusion in the agenda with / RET"
   (and (cond
