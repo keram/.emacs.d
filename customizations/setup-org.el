@@ -250,3 +250,8 @@ This function makes sure that dates are aligned for easy reading."
 (setq org-agenda-format-date 'mla/org-agenda-format-date-aligned)
 
 (setq org-plantuml-jar-path (expand-file-name "~/tools/plantuml.jar"))
+(setq org-html-validation-link nil)
+(setq org-html-coding-system 'utf-8-unix)
+
+;; alternative 'inline-css
+(setq org-html-htmlize-output-type 'css)
