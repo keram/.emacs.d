@@ -54,9 +54,13 @@
    (dot . t)
    (ditaa . t)
    (sql . t)
+   (sqlite . t)
    (ruby . t)
    (restclient . t)
    (R . t)))
+
+(add-to-list 'exec-path "./bin/")
+(setq org-babel-sqlite3-command "sqlite3")
 
 (setq org-confirm-babel-evaluate nil
       org-src-fontify-natively t
