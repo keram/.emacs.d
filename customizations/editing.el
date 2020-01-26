@@ -428,3 +428,5 @@
 (use-package git-gutter-fringe+ :ensure t
   :config
   (git-gutter-fr+-minimal))
+
+(use-package idris-mode :ensure t)

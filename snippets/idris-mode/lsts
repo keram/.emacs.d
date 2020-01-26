@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: List String
+# key: lsts
+# --
+List String $0

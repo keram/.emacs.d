@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: List Nat
+# key: lstn
+# --
+List Nat $0
