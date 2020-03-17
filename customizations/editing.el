@@ -442,3 +442,5 @@
   (git-gutter-fr+-minimal))
 
 (use-package idris-mode :ensure t)
+
+(use-package haskell-mode :ensure t)
