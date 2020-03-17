@@ -256,3 +256,20 @@ This function makes sure that dates are aligned for easy reading."
 
 ;; alternative 'inline-css
 (setq org-html-htmlize-output-type 'css)
+
+(setq org-fontify-quote-and-verse-blocks t
+ org-hide-macro-markers t
+ org-fontify-whole-heading-line t
+ org-fontify-done-headline t
+ org-hide-emphasis-markers t)
+
+;; warning is deactivated if the task gets scheduled and you set
+(setq org-agenda-skip-deadline-prewarning-if-scheduled t)
+
+;; (add-to-list 'org-structure-template-alist
+;;              '("sq" . "src sql"))
+
+;; https://github.com/dakrone/ox-tufte
+(use-package ox-tufte
+  :defer t
+  :ensure t)
