@@ -57,7 +57,8 @@
    (sqlite . t)
    (ruby . t)
    (restclient . t)
-   (R . t)))
+   (R . t)
+   (haskell . t)))
 
 (add-to-list 'exec-path "./bin/")
 (setq org-babel-sqlite3-command "sqlite3")
