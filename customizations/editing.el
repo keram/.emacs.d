@@ -90,10 +90,10 @@
 ;; create tags file in project root,
 ;; find . -name "*.[ch]" | ctags -e -L -
 ;; https://github.com/redguardtoo/company-ctags
-(use-package company-ctags
-  :ensure t
-  :after 'company-ctags-auto-setup
-)
+;; (use-package company-ctags
+;;   :ensure t
+;;   :after 'company-ctags-auto-setup
+;; )
 
 ;; (eval-after-load 'company
 ;;   '(progn
