@@ -198,19 +198,19 @@
   (require 'poly-markdown))
 
 ;;https://github.com/alphapapa/org-super-agenda
-(use-package org-super-agenda
-  :ensure t
-  :after (org org-agenda)
-  :config
-  (org-super-agenda-mode)
-  (setq org-super-agenda-groups
-        '((:name "Work" :tag ("work" "@work" ":@work:"))
-          (:name "GTD" :category ("gtd"))
-          (:name "Other" :category ("regular"))
-          (:name "")
-          (:discard (:category ("radar")))
-          (:auto-category t)
-          )))
+;; (use-package org-super-agenda
+;;   :ensure t
+;;   :after (org org-agenda)
+;;   :config
+;;   (org-super-agenda-mode)
+;;   (setq org-super-agenda-groups
+;;         '((:name "Work" :tag ("work" "@work" ":@work:"))
+;;           (:name "GTD" :category ("gtd"))
+;;           (:name "Other" :category ("regular"))
+;;           (:name "")
+;;           (:discard (:category ("radar")))
+;;           (:auto-category t)
+;;           )))
 
 (setq org-todo-keyword-faces
       '(("Asses" . (:foreground "LightGoldenrod2"))
