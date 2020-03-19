@@ -1,3 +1,6 @@
+;; for set-difference
+(require 'cl)
+
 (use-package org
   :defer t
   :ensure t
@@ -13,9 +16,9 @@
   (add-hook 'org-mode-hook 'org-bullets-mode))
 
 ;; Error (use-package): Cannot load org-plus-contrib
-;; (use-package org-plus-contrib
-;;   :defer t
-;;   :ensure t)
+(use-package org-plus-contrib
+  :defer t
+  :ensure t)
 
 (use-package ox-reveal
   :defer t
@@ -68,7 +71,17 @@
       org-src-tab-acts-natively t
       org-babel-clojure-backend 'cider
       ;; no extra indentation for contents in src code blocks
-      org-edit-src-content-indentation 0)
+      org-edit-src-content-indentation 0
+      org-hide-macro-markers t
+      org-fontify-quote-and-verse-blocks t
+      org-fontify-whole-heading-line t
+      org-fontify-done-headline t
+      org-hide-emphasis-markers t)
+
+(setq org-html-validation-link nil
+      org-html-coding-system 'utf-8-unix
+      ;; alternative 'inline-css
+      org-html-htmlize-output-type 'css)
 
 (setq org-directory "~/docs/org"
       org-default-notes-file (concat org-directory "/" "refile.org")
@@ -98,7 +111,6 @@
        (file-expand-wildcards (concat org-directory "/" "*.org"))
        org-agenda-files))
 
-(setq org-ditaa-jar-path "~/tools/ditaa.jar")
 (setq my-org-files (file-expand-wildcards (concat org-directory "/" "*.org")))
 (setq org-refile-targets
       (quote ((nil :maxlevel . 2)
@@ -114,6 +126,8 @@
                 (let ((default-directory "~/tools"))
                   (shell-command-to-string "sync-org.bat"))
               )))
+
+(setq org-ditaa-jar-path "~/tools/ditaa.jar")
 
 (defun jump-to-org-agenda ()
   (interactive)
@@ -251,23 +265,11 @@ This function makes sure that dates are aligned for easy reading."
 (setq org-agenda-format-date 'mla/org-agenda-format-date-aligned)
 
 (setq org-plantuml-jar-path (expand-file-name "~/tools/plantuml.jar"))
-(setq org-html-validation-link nil)
-(setq org-html-coding-system 'utf-8-unix)
-
-;; alternative 'inline-css
-(setq org-html-htmlize-output-type 'css)
-
-(setq org-fontify-quote-and-verse-blocks t
- org-hide-macro-markers t
- org-fontify-whole-heading-line t
- org-fontify-done-headline t
- org-hide-emphasis-markers t)
-
 ;; warning is deactivated if the task gets scheduled and you set
 (setq org-agenda-skip-deadline-prewarning-if-scheduled t)
 
-;; (add-to-list 'org-structure-template-alist
-;;              '("sq" . "src sql"))
+(add-to-list 'org-structure-template-alist
+             '("sq" . "src sql"))
 
 ;; https://github.com/dakrone/ox-tufte
 (use-package ox-tufte
