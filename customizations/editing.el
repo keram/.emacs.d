@@ -159,6 +159,11 @@
   :ensure t
   :config
   (slime-setup '(slime-fancy slime-company)))
+
+; scheme
+(use-package geiser
+  :defer t
+  :ensure t)
 ; end lisp
 
 ;; yaml
