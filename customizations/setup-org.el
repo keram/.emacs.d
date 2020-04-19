@@ -56,6 +56,7 @@
    (sql . t)
    (sqlite . t)
    (ruby . t)
+   (calc . t)
    (restclient . t)
    (R . t)))
 
@@ -255,3 +256,6 @@ This function makes sure that dates are aligned for easy reading."
 
 ;; alternative 'inline-css
 (setq org-html-htmlize-output-type 'css)
+
+;; open csv files in emacs org mode with C-o
+(add-to-list 'org-file-apps '("\\.csv\\'" . emacs))
