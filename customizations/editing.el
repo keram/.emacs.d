@@ -90,10 +90,10 @@
 ;; create tags file in project root,
 ;; find . -name "*.[ch]" | ctags -e -L -
 ;; https://github.com/redguardtoo/company-ctags
-(use-package company-ctags
-  :ensure t
-  :after 'company-ctags-auto-setup
-)
+;; (use-package company-ctags
+;;   :ensure t
+;;   :after 'company-ctags-auto-setup
+;; )
 
 ;; (eval-after-load 'company
 ;;   '(progn
@@ -166,18 +166,6 @@
   :defer t
   :mode ("\\.yaml\\'" "\\.yml\\'")
   :ensure t)
-
-;; scala
-(use-package ensime
-  :ensure t
-  :defer t
-  :commands (ensime-scala-mode-hook))
-
-(use-package scala-mode
-  :ensure t
-  :defer t
-  :mode ("\\.scala\\'" . scala-mode)
-  :config (add-hook 'scala-mode-hook 'ensime-scala-mode-hook))
 
 ;; rust
 (use-package rust-mode
@@ -264,6 +252,7 @@
       (setq refmt-command refmt-bin)))
   )
 
+(add-to-list 'load-path "~/.opam/default/share/emacs/site-lisp")
 (use-package ocp-indent)
 ;(use-package ocp-index)
 
@@ -442,3 +431,5 @@
   (git-gutter-fr+-minimal))
 
 (use-package idris-mode :ensure t)
+
+(use-package haskell-mode :ensure t)

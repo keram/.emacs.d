@@ -98,3 +98,10 @@
 (use-package logview
   :ensure t
   :mode ("syslog\\(?:\\.[0-9]+\\)" "\\.log\\(?:\\.[0-9]+\\)?\\'"))
+
+;; by default M-x eshell will open existing instance
+;; of eshell in current buffer
+(defun eshell-new()
+  "Open a new instance of eshell."
+  (interactive)
+  (eshell 'N))
