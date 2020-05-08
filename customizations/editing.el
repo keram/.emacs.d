@@ -325,7 +325,8 @@
 
 (use-package key-chord
   :defer t
-  :ensure t)
+  :ensure t
+  :config (key-chord-mode 1))
 
 (key-chord-define-global "q0" ")")
 (key-chord-define-global "q9" "(")
@@ -347,8 +348,8 @@
 (key-chord-define-global "q." ">")
 (key-chord-define-global "q[" "{")
 (key-chord-define-global "q]" "}")
-(key-chord-define-global "w." "-> ")
-(key-chord-define-global "w," "<- ")
+;; (key-chord-define-global "w." "-> ")
+
 
 (setq key-chord-two-keys-delay 0.2)
 (setq key-chord-one-key-delay 0.3)
@@ -435,6 +436,12 @@
   :config
   (git-gutter-fr+-minimal))
 
-(use-package idris-mode :ensure t)
+(use-package idris-mode
+  :ensure t
+  :config
+  (key-chord-define idris-mode-map "e." "=> ")
+  (key-chord-define idris-mode-map "w." "-> ")
+  (key-chord-define idris-mode-map "w," "<- ")
+  )
 
 (use-package haskell-mode :ensure t)
