@@ -59,6 +59,7 @@
    (sql . t)
    (sqlite . t)
    (ruby . t)
+   (calc . t)
    (restclient . t)
    (R . t)
    (haskell . t)))
@@ -269,9 +270,15 @@ This function makes sure that dates are aligned for easy reading."
 (setq org-agenda-skip-deadline-prewarning-if-scheduled t)
 
 (add-to-list 'org-structure-template-alist
-             '("sq" . "src sql"))
+             '("ql" . "src sql"))
+
+;; alternative 'inline-css
+(setq org-html-htmlize-output-type 'css)
 
 ;; https://github.com/dakrone/ox-tufte
 (use-package ox-tufte
   :defer t
   :ensure t)
+
+;; open csv files in emacs org mode with C-o
+(add-to-list 'org-file-apps '("\\.csv\\'" . emacs))
