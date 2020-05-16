@@ -57,6 +57,7 @@
 (load "setup-org-capture.el")
 (load "setup-ruby.el")
 (load "setup-go.el")
+(load "setup-sql.el")
 
 ;; Hard-to-categorize customizations
 (load "misc.el")
