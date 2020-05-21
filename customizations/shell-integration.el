@@ -2,7 +2,7 @@
 ;; https://github.com/purcell/exec-path-from-shell
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns))
-  :demand t
+  :ensure t
   :config
   (progn
     (exec-path-from-shell-initialize)
