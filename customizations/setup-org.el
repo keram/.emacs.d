@@ -20,10 +20,29 @@
   :defer t
   :ensure t)
 
+;; reveal-js style presentations
 (use-package ox-reveal
-  :defer t
   :ensure t
-  :config (require 'ox-reveal))
+  ;; defer loading for 3 sec
+  :defer 3
+  :after org
+  )
+
+;; github markdown
+(use-package ox-gfm
+  :ensure t
+  ;; defer loading for 3 sec
+  :defer 3
+  :after org
+  )
+
+;; nice html template
+;; https://github.com/dakrone/ox-tufte
+(use-package ox-tufte
+  :ensure t
+  :defer 3
+  :after org
+  )
 
 (use-package org-present
   :defer t
@@ -44,7 +63,6 @@
 (use-package ob-restclient
   :defer t
   :ensure t)
-
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -275,10 +293,7 @@ This function makes sure that dates are aligned for easy reading."
 ;; alternative 'inline-css
 (setq org-html-htmlize-output-type 'css)
 
-;; https://github.com/dakrone/ox-tufte
-(use-package ox-tufte
-  :defer t
-  :ensure t)
-
 ;; open csv files in emacs org mode with C-o
 (add-to-list 'org-file-apps '("\\.csv\\'" . emacs))
+
+(setq org-attach-use-inheritance t)
