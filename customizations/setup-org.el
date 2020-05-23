@@ -297,3 +297,11 @@ This function makes sure that dates are aligned for easy reading."
 (add-to-list 'org-file-apps '("\\.csv\\'" . emacs))
 
 (setq org-attach-use-inheritance t)
+
+;; This makes ‘a + p’ look like ‘a + p’ and
+;; also displays sub- and superscripts properly.
+(setq org-pretty-entities t)
+
+;; footnotes to be automatically sorted and renumbered whenever
+;; I insert a new one.
+(setq org-footnote-auto-adjust t)
