@@ -1,7 +1,7 @@
 ;; Sets up exec-path-from shell
 ;; https://github.com/purcell/exec-path-from-shell
 (use-package exec-path-from-shell
-  :if (memq window-system '(mac ns))
+  :if (or (eq system-type 'gnu/linux) (memq window-system '(mac ns)))
   :ensure t
   :config
   (progn
