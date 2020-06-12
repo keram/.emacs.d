@@ -109,7 +109,7 @@
     (set-window-buffer w1 w2b)
     (set-window-buffer w2 w1b)))
 
-
+;; haven't used at all
 ;; https://github.com/miloss/dotfiles/blob/master/.emacs.d/emacs-libraries.el#L9-L22
 ;; SrSpeedbar
 ;; (require 'sr-speedbar)
@@ -125,9 +125,9 @@
 
 ;; (advice-add 'sr-speedbar-open :after #'my-sr-speedbar-open-hook)
 ;; (advice-add 'sr-speedbar-open :after (lambda () (other-window 1)))
-(use-package sr-speedbar
-  :ensure t
-  :defer t
-  :config (setq speedbar-show-unknown-files t
-                speedbar-update-flag nil
-                speedbar-use-images nil))
+;; (use-package sr-speedbar
+;;   :ensure t
+;;   :defer t
+;;   :config (setq speedbar-show-unknown-files t
+;;                 speedbar-update-flag nil
+;;                 speedbar-use-images nil))
