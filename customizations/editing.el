@@ -432,6 +432,8 @@
   (global-git-gutter+-mode 1)
   )
 
+;; https://github.com/emacsorphanage/git-gutter-fringe
+;; +- signs on left side of the code
 (use-package git-gutter-fringe+ :ensure t
   :config
   (git-gutter-fr+-minimal))
