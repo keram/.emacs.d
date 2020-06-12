@@ -153,5 +153,11 @@
 ;; https://github.com/alpaker/Fill-Column-Indicator
 (use-package fill-column-indicator
   :ensure t
+  :init (add-hook 'prog-mode-hook #'fci-mode)
+  ;; :hook (prog-mode-hook . fci-mode)
   :config
-  (setq fci-rule-column 79))
+  (setq fci-rule-column 79)
+  (setq fci-rule-color "#444444"))
+;; (add-hook 'prog-mode-hook 'fci-mode)
+
+;; (setq fci-rule-color "darkblue")
