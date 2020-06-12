@@ -11,7 +11,7 @@
 
 ;; Show line numbers
 ;; (global-display-line-numbers-mode)
-;; (add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 ;; Don't show native OS scroll bars for buffers because they're redundant
 (when (fboundp 'scroll-bar-mode)
@@ -137,8 +137,8 @@
                 ;; mode-line-frame-identification
                 mode-line-buffer-identification
                 "   "
-                mode-line-position
-                ;; (vc-mode vc-mode)
+                ;; mode-line-position
+                (vc-mode vc-mode)
                 ;; "  "
                 ;; mode-line-modes
                 "   "
