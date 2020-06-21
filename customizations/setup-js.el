@@ -54,7 +54,7 @@
          (before-save . tide-format-before-save)
          )
   :config
-  (key-chord-define typescript-mode-map "e." "() => { ")
+  (key-chord-define typescript-mode-map "e." " => { ")
   (key-chord-define typescript-mode-map "w." "=> ")
   (setq tide-hl-identifier-idle-time 1)
   )
