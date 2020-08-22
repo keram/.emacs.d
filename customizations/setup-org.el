@@ -78,12 +78,14 @@
    (sqlite . t)
    (ruby . t)
    (calc . t)
+   (python . t)
    (restclient . t)
    (R . t)
    (haskell . t)))
 
 (add-to-list 'exec-path "./bin/")
 (setq org-babel-sqlite3-command "sqlite3")
+;; (add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
 
 (setq org-confirm-babel-evaluate nil
       org-src-fontify-natively t

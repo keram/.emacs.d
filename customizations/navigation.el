@@ -77,20 +77,40 @@
   :bind (
          ;; ("C-p s" . projectile-switch-open-project)
          ;; ("C-x p" . projectile-switch-project)
-         ("C-c p" . projectile-command-map))
+         ("C-c p" . projectile-command-map)
+         )
   :config
   (projectile-global-mode)
   (setq projectile-enable-caching t)
   )
 
-;; (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+;; (defun my-projectile-test-project (arg)
+;;   "Run project test command.
+
+;; Normally you'll be prompted for a compilation command, unless
+;; variable `compilation-read-command'.  You can force the prompt
+;; with a prefix ARG."
+;;   (interactive "P")
+;;   (let ((command (projectile-test-command (projectile-compilation-dir))))
+;;     (projectile--run-project-cmd command projectile-test-cmd-map
+;;                                  :show-prompt t
+;;                                  :prompt-prefix "bla: "
+;;                                  :save-buffers t)))
+;; (defun my-projectile-run-tests (&optional prompt)
+;;   (interactive "P")
+;;   (let ((compilation-read-command
+;;          (or (not (projectile-run-command (projectile-compilation-dir)))
+;;              prompt)))
+;;     (projectile-test-project prompt)))
+
+(define-key prog-mode-map (kbd "<f7>") 'projectile-test-project)
 ;; (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 ;; (projectile-register-project-type 'npm '("package.json")
 ;;                                   :compile "npm install"
-;;                                   :test "npm test"
+;;                                   :test "npx jest"
 ;;                                   :run "npm run start"
-;;                                   :test-suffix ".unit")
+;;                                   :test-suffix ".test")
 
 (use-package ag
   :ensure t)

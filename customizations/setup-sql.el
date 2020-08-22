@@ -122,7 +122,7 @@
 
 (use-package sql-indent
   :ensure t
-  :config (progn
-            (add-hook 'sql-mode-hook 'sqlind-minor-mode)
-            )
+  ;; :config (progn
+  ;;           (add-hook 'sql-mode-hook 'sqlind-minor-mode)
+  ;;           )
   )

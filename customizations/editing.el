@@ -129,23 +129,23 @@
   (custom-set-variables
    '(markdown-command "/usr/bin/pandoc")))
 
-; lisp editing
-(use-package lsp-mode
-  :defer t
-  :ensure t)
+;; lisp editing
+;; (use-package lsp-mode
+;;   :defer t
+;;   :ensure t)
 
-(use-package lsp-ui
-  :defer t
-  :ensure t
-  :config
-  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
-  (add-hook 'java-mode-hook 'flycheck-mode))
+;; (use-package lsp-ui
+;;   :defer t
+;;   :ensure t
+;;   :config
+;;   (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+;;   (add-hook 'java-mode-hook 'flycheck-mode))
 
-(use-package company-lsp
-  :ensure t
-  :defer t
-  :config
-  (push 'company-lsp company-backend))
+;; (use-package company-lsp
+;;   :ensure t
+;;   :defer t
+;;   :config
+;;   (push 'company-lsp company-backend))
 
 (use-package slime
   :defer t
