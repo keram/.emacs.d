@@ -11,6 +11,10 @@
 ;; Go straight to scratch buffer on startup
 (setq inhibit-startup-message t)
 
+;; org mode scratch pad
+(setq initial-major-mode 'org-mode)
+(setq initial-scratch-message nil)
+
 ;; store buffers
 (desktop-save-mode 1)
 
