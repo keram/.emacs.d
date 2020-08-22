@@ -350,6 +350,8 @@
 (key-chord-define-global "q]" "}")
 ;; (key-chord-define-global "w." "-> ")
 
+(key-chord-define ess-r-mode-map "w," " <- ")
+
 
 (setq key-chord-two-keys-delay 0.2)
 (setq key-chord-one-key-delay 0.3)
