@@ -350,8 +350,6 @@
 (key-chord-define-global "q]" "}")
 ;; (key-chord-define-global "w." "-> ")
 
-(key-chord-define ess-r-mode-map "w," " <- ")
-
 
 (setq key-chord-two-keys-delay 0.2)
 (setq key-chord-one-key-delay 0.3)
@@ -377,7 +375,10 @@
 ;; emacs speak statistics
 (use-package ess
   :ensure t
-  :defer t)
+  :defer t
+  :config
+  (key-chord-define ess-r-mode-map "w," " <- ")
+  )
 
 ;; https://github.com/pashky/restclient.el
 ;; https://erick.navarro.io/blog/testing-an-api-with-emacs-and-restclient/
