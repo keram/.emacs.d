@@ -1,9 +1,6 @@
 ;; Changes all yes/no questions to y/n type
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; shell scripts
-(setq-default sh-basic-offset 2)
-(setq-default sh-indentation 2)
 
 ;; No need for ~ files when editing
 (setq create-lockfiles nil)
@@ -25,7 +22,6 @@
   :ensure t
   :config
   (which-key-mode))
-
 
 ;; This one has to happen after all modes that use parens are loaded
 ;; More at http://www.emacswiki.org/emacs/ParEdit
@@ -90,25 +86,21 @@
 ;; https://github.com/nashamri/academic-phrases
 ;; (use-package academic-phrases :ensure t)
 
+;; unused
 ;; https://github.com/SavchenkoValeriy/emacs-powerthesaurus
-(use-package powerthesaurus :ensure t)
-(use-package config-general-mode
-  :ensure t
-  :mode ("\\.conf$" "\\.*rc$"))
+;; (use-package powerthesaurus :ensure t)
 
+;; unused
+;; (use-package config-general-mode
+;;   :ensure t
+;;   :mode ("\\.conf$" "\\.*rc$"))
 
-
+;; unused
 ;; https://github.com/doublep/logview
-(use-package logview
-  :ensure t
-  :mode ("syslog\\(?:\\.[0-9]+\\)" "\\.log\\(?:\\.[0-9]+\\)?\\'"))
+;; (use-package logview
+;;   :ensure t
+;;   :mode ("syslog\\(?:\\.[0-9]+\\)" "\\.log\\(?:\\.[0-9]+\\)?\\'"))
 
-;; by default M-x eshell will open existing instance
-;; of eshell in current buffer
-(defun eshell-new()
-  "Open a new instance of eshell."
-  (interactive)
-  (eshell 'N))
 
 ;; http://ergoemacs.org/emacs/emacs_copy_file_path.html
 (defun xah-copy-file-path (&optional @dir-path-only-p)

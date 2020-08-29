@@ -110,11 +110,6 @@
   :bind (("C-x C-M-g" . magit-status))
   )
 
-(if (eq system-type 'windows-nt)
-    (progn
-      (setq exec-path (add-to-list 'exec-path "C:/Program Files/Git/bin"))
-      (setenv "PATH" (concat "C:\\Program Files\\Git\\bin;" (getenv "PATH")))))
-
 ;; popup commit message at current line
 ;; https://github.com/syohex/emacs-git-messenger
 ;; (use-package git-messenger
@@ -293,12 +288,6 @@
                              prompt)))
                    (utop-minor-mode)))
   )
-
-;; json
-(use-package json-mode
-  :mode "\\.json\\'"
-  :defer t
-  :ensure t)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
