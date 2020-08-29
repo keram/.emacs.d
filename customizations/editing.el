@@ -99,16 +99,6 @@
 ;;   '(progn
 ;;      ))
 
-(use-package magit
-  :ensure t
-  :init (require 'transient)
-  :config
-  ;; https://magit.vc/manual/magit/Performance.html#Performance
-  (remove-hook 'server-switch-hook 'magit-commit-diff)
-  (setq magit-refresh-status-buffer nil)
-  (setq vc-handled-backends nil)
-  :bind (("C-x C-M-g" . magit-status))
-  )
 
 ;; popup commit message at current line
 ;; https://github.com/syohex/emacs-git-messenger
@@ -167,12 +157,12 @@
   :mode ("\\.yaml\\'" "\\.yml\\'")
   :ensure t)
 
+;; unused
 ;; rust
-(use-package rust-mode
-  :defer t
-  :mode "\\.rs\\'"
-  :ensure t)
-
+;; (use-package rust-mode
+;;   :defer t
+;;   :mode "\\.rs\\'"
+;;   :ensure t)
 
 ;; multi  line edit
 (use-package multiple-cursors
@@ -203,12 +193,6 @@
   :ensure t
   :defer t
   :mode ("\\.ml\\'" . tuareg-mode))
-
-;; reasonml
-; (use-package reason-mode
-;   :ensure t
-;   :defer nil)
-
 
 (defun shell-cmd (cmd)
   "Returns the stdout output of a shell command or nil if the command returned
@@ -337,8 +321,6 @@
 (key-chord-define-global "q." ">")
 (key-chord-define-global "q[" "{")
 (key-chord-define-global "q]" "}")
-;; (key-chord-define-global "w." "-> ")
-
 
 (setq key-chord-two-keys-delay 0.2)
 (setq key-chord-one-key-delay 0.3)
@@ -409,26 +391,6 @@
   (setq browse-kill-ring-separator
         ".-~-.-~-.-~-.-~-.
 "))
-
-;; Git config files.
-;; from https://github.com/pdcawley/dotemacs
-(use-package gitignore-mode :ensure t)
-(use-package gitconfig-mode :ensure t)
-(use-package gitattributes-mode :ensure t)
-
-(use-package git-gutter+ :ensure t
-  :diminish git-gutter+-mode
-  :diminish git-gutter-mode
-  :init
-  ;; (bindings|add-toggle git-gutter :mode git-gutter+-mode :toggle-keys "Tg")
-  (global-git-gutter+-mode 1)
-  )
-
-;; https://github.com/emacsorphanage/git-gutter-fringe
-;; +- signs on left side of the code
-(use-package git-gutter-fringe+ :ensure t
-  :config
-  (git-gutter-fr+-minimal))
 
 (use-package idris-mode
   :ensure t

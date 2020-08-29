@@ -58,6 +58,7 @@
 (load "setup-ruby.el")
 (load "setup-go.el")
 (load "setup-sql.el")
+(load "setup-git.el")
 
 ;; Hard-to-categorize customizations
 (load "misc.el")
