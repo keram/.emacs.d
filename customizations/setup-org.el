@@ -76,6 +76,7 @@
    (ditaa . t)
    (sql . t)
    (sqlite . t)
+   (scheme . t)
    (ruby . t)
    (calc . t)
    (python . t)
