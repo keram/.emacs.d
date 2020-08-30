@@ -76,6 +76,23 @@
 ;; no bell
 (setq ring-bell-function 'ignore)
 
+;; let's pretify those lambdas
+(defun my-pretty-lambda (lambda-string)
+  "Make some word or string show as pretty Unicode symbols.  LAMBDA-STRING is the way that the language declares lambda functions."
+  (setq prettify-symbols-alist
+        ;; λ Π Σ
+        '((lambda-string . 955)
+          (phi-string . 981) ;; ϕ
+          (pi-string . 928) ;; Π
+          (sigma-string . 931) ;; ϕ
+          )))
+
+;; (defun my-pretty-lambda-clojure ()
+;;   "Make some word or string show as pretty Unicode symbols.  LAMBDA-STRING is the way that the language declares lambda functions."
+;;   (setq prettify-symbols-alist
+;;         ;; λ
+;;         '(("fn" . 955))))
+
 (global-prettify-symbols-mode 1)
 ;; http://endlessparentheses.com/new-in-emacs-25-1-have-prettify-symbols-mode-reveal-the-symbol-at-point.html
 (setq prettify-symbols-unprettify-at-point 'right-edge)
