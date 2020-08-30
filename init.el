@@ -56,7 +56,8 @@
 (load "setup-org.el")
 (load "setup-org-capture.el")
 (load "setup-ruby.el")
-(load "setup-go.el")
+;; unused
+;; (load "setup-go.el")
 (load "setup-sql.el")
 (load "setup-git.el")
 
