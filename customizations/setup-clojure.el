@@ -52,7 +52,7 @@
                 (context 2))
               ))
   (add-hook 'clojure-mode-hook #'cider-mode)
-  (add-hook 'clojure-mode-hook 'my-pretty-lambda-clojure))
+  )
 
 (use-package clj-refactor
   :defer t
@@ -66,12 +66,6 @@
   :ensure t
   :pin melpa-stable)
 
-
-(defun my-pretty-lambda-clojure ()
-  "Make some word or string show as pretty Unicode symbols.  LAMBDA-STRING is the way that the language declares lambda functions."
-  (setq prettify-symbols-alist
-        ;; λ
-        '(("fn" . 955))))
 
 ;; https://github.com/weavejester/compojure/wiki/Emacs-indentation
 ;; (define-clojure-indent

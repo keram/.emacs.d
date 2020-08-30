@@ -76,22 +76,22 @@
 ;; no bell
 (setq ring-bell-function 'ignore)
 
-;; let's pretify those lambdas
-(defun my-pretty-lambda (lambda-string)
-  "Make some word or string show as pretty Unicode symbols.  LAMBDA-STRING is the way that the language declares lambda functions."
-  (setq prettify-symbols-alist
-        ;; λ
-        '((lambda-string . 955))))
-
-(defun my-pretty-lambda-clojure ()
-  "Make some word or string show as pretty Unicode symbols.  LAMBDA-STRING is the way that the language declares lambda functions."
-  (setq prettify-symbols-alist
-        ;; λ
-        '(("fn" . 955))))
-
 (global-prettify-symbols-mode 1)
 ;; http://endlessparentheses.com/new-in-emacs-25-1-have-prettify-symbols-mode-reveal-the-symbol-at-point.html
 (setq prettify-symbols-unprettify-at-point 'right-edge)
+
+;; LAMBDA-STRING is the way that the language declares lambda functions.
+;; (setq prettify-symbols-alist
+;;         ;; λ
+;;         '((lambda-string . 955)
+;;           ("fn" . 955)
+;;           ("pi" . 960)
+;;           ("sum" . 931)
+;;           ))
+
+;; (add-hook 'emacs-lisp-mode-hook
+;;             (lambda ()
+;;               (push '("<=" . ?≤) prettify-symbols-alist)))
 
 ;; tmux like zoom
 ;; https://github.com/syohex/emacs-zoom-window
@@ -100,10 +100,6 @@
   :bind ("C-x C-z" . zoom-window-zoom)
   :config (custom-set-variables
            '(zoom-window-mode-line-color "Black")))
-
-(defun set-window-width (n)
-  "Set the selected window's width."
-   (adjust-window-trailing-edge (selected-window) (- n (window-width)) t))
 
 ; http://ergoemacs.org/emacs/emacs_dired_tips.html
 (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
