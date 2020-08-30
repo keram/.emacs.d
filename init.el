@@ -48,7 +48,7 @@
 (load "editing.el")
 
 ;; For editing lisps
-(load "elisp-editing.el")
+(load "setup-lisp.el")
 
 ;; Langauage-specific
 (load "setup-clojure.el")
