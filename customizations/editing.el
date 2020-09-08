@@ -95,11 +95,6 @@
 ;;   :after 'company-ctags-auto-setup
 ;; )
 
-;; (eval-after-load 'company
-;;   '(progn
-;;      ))
-
-
 ;; popup commit message at current line
 ;; https://github.com/syohex/emacs-git-messenger
 ;; (use-package git-messenger

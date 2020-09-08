@@ -15,16 +15,16 @@
 ;; https://github.com/emacsorphanage/git-gutter-fringe
 ;; +- signs on left side of the code
 (use-package git-gutter-fringe+ :ensure t
-  :config
+  :configv
   (git-gutter-fr+-minimal))
 
-(use-package magit
-  :ensure t
-  :init (require 'transient)
-  :config
-  ;; https://magit.vc/manual/magit/Performance.html#Performance
-  (remove-hook 'server-switch-hook 'magit-commit-diff)
-  (setq magit-refresh-status-buffer nil)
-  (setq vc-handled-backends nil)
-  :bind (("C-x C-M-g" . magit-status))
-  )
+;; (use-package magit
+;;   :ensure t
+;;   :init (require 'transient)
+;;   :config
+;;   ;; https://magit.vc/manual/magit/Performance.html#Performance
+;;   (remove-hook 'server-switch-hook 'magit-commit-diff)
+;;   (setq magit-refresh-status-buffer nil)
+;;   (setq vc-handled-backends nil)
+;;   :bind (("C-x C-M-g" . magit-status))
+;;   )
