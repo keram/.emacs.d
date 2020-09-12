@@ -15,7 +15,7 @@
 ;; https://github.com/emacsorphanage/git-gutter-fringe
 ;; +- signs on left side of the code
 (use-package git-gutter-fringe+ :ensure t
-  :configv
+  :config
   (git-gutter-fr+-minimal))
 
 ;; (use-package magit
