@@ -1,5 +1,5 @@
 ;; for set-difference
-(require 'cl)
+(require 'cl-lib)
 
 (use-package org
   :defer t
@@ -129,7 +129,7 @@
       org-ellipsis "⤵")
 
 (setq org-agenda-text-search-extra-files
-      (set-difference
+      (cl-set-difference
        (file-expand-wildcards (concat org-directory "/" "*.org"))
        org-agenda-files))
 
