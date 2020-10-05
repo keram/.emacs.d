@@ -305,9 +305,9 @@
 ;; emacs speak statistics
 (use-package ess
   :ensure t
-  :defer t
-  :config
-  (key-chord-define ess-r-mode-map "w," " <- ")
+  :defer f
+  ;; :config
+  ;; (key-chord-define ess-r-mode-map "w," " <- ")
   )
 
 ;; https://github.com/pashky/restclient.el
