@@ -16,9 +16,11 @@
   (add-hook 'org-mode-hook 'org-bullets-mode))
 
 ;; Error (use-package): Cannot load org-plus-contrib
-(use-package org-plus-contrib
-  :defer t
-  :ensure t)
+;; commented out as included ob-sql.el is causing issues with sql src blocks
+;; https://photos.app.goo.gl/cHeZmsham8poiesf6
+;;(use-package org-plus-contrib
+;;  :defer t
+;;  :ensure t)
 
 ;; reveal-js style presentations
 (use-package ox-reveal
