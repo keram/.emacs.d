@@ -360,3 +360,16 @@
   )
 
 (use-package haskell-mode :ensure t)
+
+;; https://www.masteringemacs.org/article/re-builder-interactive-regexp-builder
+;; you don’t have the issue of backslash plague that haunts the default settings
+(require 're-builder)
+(setq reb-re-syntax 'string)
+
+
+;; https://github.com/editorconfig/editorconfig-emacs
+;; https://editorconfig.org/
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
