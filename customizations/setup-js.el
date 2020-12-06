@@ -3,10 +3,10 @@
 ;;   :defer t
 ;;   :ensure t)
 
-(use-package json-mode
-  :mode "\\.json\\'"
-  :defer t
-  :ensure t)
+;; (use-package json-mode
+;;   :mode "\\.json\\'"
+;;   :defer t
+;;   :ensure t)
 
 (use-package js2-mode
   :defer t
