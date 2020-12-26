@@ -54,12 +54,14 @@
   (add-hook 'clojure-mode-hook #'cider-mode)
   )
 
-(use-package clj-refactor
-  :defer t
-  :ensure t
-;  :pin melpa-stable
-  :config
-  (add-hook 'clojure-mode-hook #'clj-clojure-setup))
+;; Not sure if I use this so will try live without and see 26.12.2020
+;; https://github.com/clojure-emacs/clj-refactor.el
+;; (use-package clj-refactor
+;;   :defer t
+;;   :ensure t
+;; ;  :pin melpa-stable
+;;   :config
+;;   (add-hook 'clojure-mode-hook #'clj-clojure-setup))
 
 (use-package clojure-mode-extra-font-locking
   :defer t
