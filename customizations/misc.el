@@ -90,18 +90,6 @@
 ;; https://github.com/SavchenkoValeriy/emacs-powerthesaurus
 ;; (use-package powerthesaurus :ensure t)
 
-;; unused
-;; (use-package config-general-mode
-;;   :ensure t
-;;   :mode ("\\.conf$" "\\.*rc$"))
-
-;; unused
-;; https://github.com/doublep/logview
-;; (use-package logview
-;;   :ensure t
-;;   :mode ("syslog\\(?:\\.[0-9]+\\)" "\\.log\\(?:\\.[0-9]+\\)?\\'"))
-
-
 ;; http://ergoemacs.org/emacs/emacs_copy_file_path.html
 (defun xah-copy-file-path (&optional @dir-path-only-p)
   "Copy the current buffer's file path or dired path to `kill-ring'.

@@ -28,3 +28,9 @@
 ;;   (setq vc-handled-backends nil)
 ;;   :bind (("C-x C-M-g" . magit-status))
 ;;   )
+
+;; popup commit message at current line
+;; https://github.com/syohex/emacs-git-messenger
+;; (use-package git-messenger
+;;   :defer t
+;;   :ensure t)

@@ -95,12 +95,6 @@
 ;;   :after 'company-ctags-auto-setup
 ;; )
 
-;; popup commit message at current line
-;; https://github.com/syohex/emacs-git-messenger
-;; (use-package git-messenger
-;;   :defer t
-;;   :ensure t)
-
 (use-package markdown-mode
   :defer t
   :ensure t
@@ -108,20 +102,6 @@
   :config
   (custom-set-variables
    '(markdown-command "/usr/bin/pandoc")))
-
-
-;; yaml
-(use-package yaml-mode
-  :defer t
-  :mode ("\\.yaml\\'" "\\.yml\\'")
-  :ensure t)
-
-;; unused
-;; rust
-;; (use-package rust-mode
-;;   :defer t
-;;   :mode "\\.rs\\'"
-;;   :ensure t)
 
 ;; multi  line edit
 (use-package multiple-cursors
@@ -146,92 +126,6 @@
   :commands gnuplot-mode
   :defer t
   :ensure t)
-
-;; ocaml
-(use-package tuareg
-  :ensure t
-  :defer t
-  :mode ("\\.ml\\'" . tuareg-mode))
-
-(defun shell-cmd (cmd)
-  "Returns the stdout output of a shell command or nil if the command returned
-     an error"
-  (car (ignore-errors (apply 'process-lines (split-string cmd)))))
-
-(setq opam-p (shell-cmd "which opam"))
-(setq reason-p (shell-cmd "which refmt"))
-
-(if opam-p
-    (let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
-      (when (and opam-share (file-directory-p opam-share))
-        (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share)))))
-
-; (let ((opam-share (ignore-errors (car (process-lines "opam" "config" "var" "share")))))
-;       (when (and opam-share (file-directory-p opam-share))
-;        ;; Register Merlin
-;        (add-to-list 'load-path (expand-file-name "emacs/site-lisp" opam-share))
-;        (autoload 'merlin-mode "merlin" nil t nil)
-;        ;; Automatically start it in OCaml buffers
-;        (add-hook 'tuareg-mode-hook 'merlin-mode t)
-;        (add-hook 'caml-mode-hook 'merlin-mode t)
-;        ;; Use opam switch to lookup ocamlmerlin binary
-;        (setq merlin-command 'opam)))
-
-(use-package reason-mode
-  :if reason-p
-  :ensure t
-  :config
-  (let* ((refmt-bin (or (shell-cmd "refmt ----where")
-                        (shell-cmd "which refmt")))
-         (merlin-bin (or (shell-cmd "ocamlmerlin ----where")
-                         (shell-cmd "which ocamlmerlin")))
-         (merlin-base-dir (when merlin-bin
-                            (replace-regexp-in-string "bin/ocamlmerlin$" "" merlin-bin))))
-    ;; Add npm merlin.el to the emacs load path and tell emacs where to find ocamlmerlin
-    (when merlin-bin
-      (add-to-list 'load-path (concat merlin-base-dir "share/emacs/site-lisp/"))
-      (setq merlin-command merlin-bin))
-    (when refmt-bin
-      (setq refmt-command refmt-bin)))
-  )
-
-(add-to-list 'load-path "~/.opam/default/share/emacs/site-lisp")
-(use-package ocp-indent)
-;(use-package ocp-index)
-
-(use-package merlin
-  :custom
-  (merlin-completion-with-doc t)
-  :bind (:map merlin-mode-map
-              ("M-." . merlin-locate)
-              ("M-," . merlin-pop-stack)
-              ("M-?" . merlin-occurrences)
-              ("C-c C-j" . merlin-jump)
-              ("C-c i" . merlin-locate-ident)
-              ("C-c C-e" . merlin-iedit-occurrences)
-              )
-  :hook
-  ;; Start merlin on ml files
-  ((reason-mode tuareg-mode caml-mode) . merlin-mode)
-  )
-
-(use-package utop
-  :custom
-  (utop-edit-command nil)
-  :hook
-  (tuareg-mode . (lambda ()
-                   (setq utop-command "utop -emacs")
-                   (utop-minor-mode)))
-  (reason-mode . (lambda ()
-                   (setq utop-command "rtop -emacs")
-                   (setq utop-prompt
-                         (lambda ()
-                           (let ((prompt (format "rtop[%d]> " utop-command-number)))
-                             (add-text-properties 0 (length prompt) '(face utop-prompt) prompt)
-                             prompt)))
-                   (utop-minor-mode)))
-  )
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; kill line if no region active                                          ;;

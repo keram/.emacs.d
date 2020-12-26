@@ -24,7 +24,6 @@
 
 (setq ruby-insert-encoding-magic-comment nil)
 (setq ruby-deep-indent-paren nil)
-;; (setq js-indent-level 4)
 
 (setq-default tab-width 2)
 (setq-default c-basic-offset 2)
@@ -44,3 +43,9 @@
   ;; :diminish rubocop-mode
   :init
   (add-hook 'ruby-mode-hook 'rubocop-mode))
+
+;; yaml
+;; (use-package yaml-mode
+;;   :defer t
+;;   :mode ("\\.yaml\\'" "\\.yml\\'")
+;;   :ensure t)
