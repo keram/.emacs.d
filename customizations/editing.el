@@ -267,3 +267,11 @@
   :ensure t
   :config
   (editorconfig-mode 1))
+
+;; non-‘nil’ value, identical subsequent kills
+;; yield a single kill-ring entry, without duplication.
+(setq kill-do-not-save-duplicates t)
+
+;; “read-only text”, which cannot be deleted
+;; non-‘nil’ value causes not displaying an error
+(setq kill-read-only-ok t)
