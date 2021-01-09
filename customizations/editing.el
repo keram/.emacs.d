@@ -275,3 +275,6 @@
 ;; “read-only text”, which cannot be deleted
 ;; non-‘nil’ value causes not displaying an error
 (setq kill-read-only-ok t)
+
+;; useful for using fill region
+(setq sentence-end-double-space nil)
