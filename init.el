@@ -24,10 +24,21 @@
 ;; Customization
 ;;;;
 
+;; To allow have slightly different settings
+;; depending on what computer or env I'm right now
+;; osx - work, win, gnu, bash on win ...
+;; => windows-nt_mla_system-custom.el
+(setq system-custom-filename
+      (concat
+       (replace-regexp-in-string "[^a-z]+" "-" (symbol-name system-type))
+       "_"
+       (replace-regexp-in-string "[^a-z]+" "-" system-name)
+       "_"
+       "system-custom.el"))
 ;; custom file contains settings edited while running emacs
 ;; content of the file is added/edited only by emacs only!!
 ;; do not edit/add there anything by hand
-(setq custom-file (expand-file-name "system-custom.el" user-emacs-directory))
+(setq custom-file (expand-file-name system-custom-filename user-emacs-directory))
 
 ;; Add a directory to our load path so that when you `load` things
 ;; below, Emacs knows where to look for the corresponding file.
