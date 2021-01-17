@@ -121,3 +121,15 @@ Version 2017-09-01"
        (progn
          (message "File path copied: 「%s」" $fpath)
          $fpath )))))
+
+
+;;; WSL-specific setup
+;; from https://github.com/wandersoncferreira/cfg/blob/master/settings/setup-defaults.el#L62
+(when (string-equal "Ubuntu-" (substring (getenv "WSL_DISTRO_NAME") 0 -5))
+  (let ((cmd-exe "/mnt/c/Windows/System32/cmd.exe")
+        (cmd-args '("/c" "start")))
+    (when (file-exists-p cmd-exe)
+      (setq browse-url-generic-program cmd-exe
+            browse-url-generic-args cmd-args
+            browse-url-browser-function 'browse-url-generic
+            search-web-default-browser 'browse-url-generic))))
