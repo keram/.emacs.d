@@ -137,11 +137,12 @@
 
 (setq my-org-files
       (mapcan (lambda (dir)
-                (file-expand-wildcards (concat org-directory dir "*.org"))) '("/" "/learn/")))
+                (file-expand-wildcards (concat org-directory dir "*.org")))
+              '("/" "/learn/")))
 
 (setq org-refile-targets
       (quote ((nil :maxlevel . 2)
-              (my-org-files :maxlevel . 2))))
+              (my-org-files :maxlevel . 1))))
 
 (add-hook 'after-init-hook
           (lambda ()

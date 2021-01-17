@@ -15,7 +15,9 @@
                "* %a\n%U\n%:initial\n" :immediate-finish t)
               ("w" "Work Diary" entry (file+datetree "~/docs/org/work.org")
                "* %?\n%U\n")
-	)))
+              ("m" "Meeting" entry (file+headline "~/docs/org/work.org" "Meetings")
+               "* With %? :MEETING:\n%U" :clock-in t :clock-resume t)
+  )))
 
 ;; Remove empty LOGBOOK drawers on clock out
 (defun bh/remove-empty-drawer-on-clock-out ()
