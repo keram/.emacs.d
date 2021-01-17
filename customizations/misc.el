@@ -125,7 +125,8 @@ Version 2017-09-01"
 
 ;;; WSL-specific setup
 ;; from https://github.com/wandersoncferreira/cfg/blob/master/settings/setup-defaults.el#L62
-(when (string-equal "Ubuntu-" (substring (getenv "WSL_DISTRO_NAME") 0 -5))
+(when (and (getenv "WSL_DISTRO_NAME")
+           (string-equal "Ubuntu-" (substring (getenv "WSL_DISTRO_NAME") 0 -5)))
   (let ((cmd-exe "/mnt/c/Windows/System32/cmd.exe")
         (cmd-args '("/c" "start")))
     (when (file-exists-p cmd-exe)
