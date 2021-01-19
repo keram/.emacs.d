@@ -21,14 +21,15 @@
                "* %?\n%U\n")
   )))
 
-;; Remove empty LOGBOOK drawers on clock out
-(defun bh/remove-empty-drawer-on-clock-out ()
-  (interactive)
-  (save-excursion
-    (beginning-of-line 0)
-    (org-remove-empty-drawer-at "LOGBOOK" (point))))
+;; not sure what this does so commenting out to find out
+;; ;; Remove empty LOGBOOK drawers on clock out
+;; (defun bh/remove-empty-drawer-on-clock-out ()
+;;   (interactive)
+;;   (save-excursion
+;;     (beginning-of-line 0)
+;;     (org-remove-empty-drawer-at "LOGBOOK" (point))))
 
-(add-hook 'org-clock-out-hook 'bh/remove-empty-drawer-on-clock-out 'append)
+;; (add-hook 'org-clock-out-hook 'bh/remove-empty-drawer-on-clock-out 'append)
 
 (global-set-key (kbd "C-c o")
                 (lambda () (interactive) (find-file org-default-notes-file)))
