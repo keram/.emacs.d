@@ -13,10 +13,12 @@
                "* %a\n%U\n%:initial\n" :immediate-finish t)
               ("L" "org-protocol" entry (file+headline org-default-notes-file "Links")
                "* %a\n%U\n%:initial\n" :immediate-finish t)
-              ("w" "Work Diary" entry (file+datetree "~/docs/org/work.org")
+              ("w" "Work related")
+              ("wa" "Work Activity" entry (file+headline "~/docs/org/work.org" "Activity")
+               (file "~/docs/org/tpl/org-work-activity.txt")
+               :jump-to-captured t)
+              ("wd" "Work Diary" entry (file+datetree "~/docs/org/work.org")
                "* %?\n%U\n")
-              ("m" "Meeting" entry (file+headline "~/docs/org/work.org" "Meetings")
-               "* With %? :MEETING:\n%U" :clock-in t :clock-resume t)
   )))
 
 ;; Remove empty LOGBOOK drawers on clock out
