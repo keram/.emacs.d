@@ -12,7 +12,7 @@
 (use-package cider
   :defer t
   :ensure t
-  :pin melpa-stable
+  ;; :pin melpa-stable
   :config
   (add-hook 'cider-repl-mode-hook 'paredit-mode)
   (add-hook 'cider-mode-hook 'paredit-mode)
@@ -23,7 +23,7 @@
 (use-package clojure-mode
   :defer t
   :ensure t
-  :pin melpa-stable
+  ;; :pin melpa-stable
   :config
   (add-hook 'clojure-mode-hook 'subword-mode)
   (add-hook 'clojure-mode-hook
@@ -66,7 +66,8 @@
 (use-package clojure-mode-extra-font-locking
   :defer t
   :ensure t
-  :pin melpa-stable)
+  ;; :pin melpa-stable
+  )
 
 
 ;; https://github.com/weavejester/compojure/wiki/Emacs-indentation
