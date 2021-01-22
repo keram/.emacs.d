@@ -25,3 +25,4 @@ transient
 .org-id-locations
 local-sensitive.el
 request/
+timelog
