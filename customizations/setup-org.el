@@ -100,7 +100,9 @@
       org-fontify-quote-and-verse-blocks t
       org-fontify-whole-heading-line t
       org-fontify-done-headline t
-      org-hide-emphasis-markers t)
+      org-hide-emphasis-markers t
+      org-log-reschedule 'time
+)
 
 (setq org-html-validation-link nil
       org-html-coding-system 'utf-8-unix
