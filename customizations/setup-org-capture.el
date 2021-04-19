@@ -19,6 +19,9 @@
                :jump-to-captured t)
               ("wd" "Work Diary" entry (file+datetree "~/docs/org/work.org")
                "* %?\n%U\n")
+              ("r" "Review" entry (file+datetree "~/docs/org/diary.org")
+               (file "~/docs/org/tpl/org-week-review.txt")
+               :jump-to-captured t :clock-in t)
   )))
 
 ;; not sure what this does so commenting out to find out
