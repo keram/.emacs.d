@@ -130,3 +130,7 @@
 
 ;; (defun select-next-window ()
 ;;   (other-window 1))
+
+(put 'scroll-left 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
+(put 'narrow-to-page 'disabled nil)

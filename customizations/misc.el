@@ -134,3 +134,5 @@ Version 2017-09-01"
             browse-url-generic-args cmd-args
             browse-url-browser-function 'browse-url-generic
             search-web-default-browser 'browse-url-generic))))
+
+(setq char-fold-symmetric t)
