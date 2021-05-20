@@ -35,6 +35,7 @@
        (replace-regexp-in-string "[^a-z]+" "-" system-name)
        "_"
        "system-custom.el"))
+
 ;; custom file contains settings edited while running emacs
 ;; content of the file is added/edited only by emacs only!!
 ;; do not edit/add there anything by hand
@@ -76,3 +77,12 @@
 
 (if (file-exists-p "local-sensitive.el")
     (load "local-sensitive.el"))
+
+;; load system specific configuration if it exists
+(let ((file-name
+       (concat (replace-regexp-in-string "[^a-z]+" "-" (symbol-name system-type)) ".el")))
+  (when (file-exists-p (expand-file-name
+                        file-name
+                        "customizations"
+                        ))
+    (load file-name)))

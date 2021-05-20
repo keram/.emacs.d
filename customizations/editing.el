@@ -57,7 +57,8 @@
   :ensure t
   :config
   (add-hook 'emacs-lisp-mode-hook #'rainbow-delimiters-mode)
-  (add-hook 'eval-expression-minibuffer-setup-hook #'rainbow-delimiters-mode)  (add-hook 'lisp-mode-hook #'rainbow-delimiters-mode)
+  (add-hook 'eval-expression-minibuffer-setup-hook #'rainbow-delimiters-mode)
+  (add-hook 'lisp-mode-hook #'rainbow-delimiters-mode)
   (add-hook 'lisp-interaction-mode-hook #'rainbow-delimiters-mode)
   (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
 )
@@ -145,9 +146,6 @@
   :mode "\\.apib\\'"
   :defer t
   :ensure t)
-
-(when (string= system-type "darwin")
-  (setq markdown-command "/usr/bin/pandoc"))
 
 (use-package key-chord
   :defer t
