@@ -4,19 +4,19 @@
 (use-package gitconfig-mode :ensure t)
 (use-package gitattributes-mode :ensure t)
 
-(use-package git-gutter+ :ensure t
-  :diminish git-gutter+-mode
-  :diminish git-gutter-mode
-  :init
-  ;; (bindings|add-toggle git-gutter :mode git-gutter+-mode :toggle-keys "Tg")
-  (global-git-gutter+-mode 1)
-  )
+;; (use-package git-gutter+ :ensure t
+;;   :diminish git-gutter+-mode
+;;   :diminish git-gutter-mode
+;;   :init
+;;   ;; (bindings|add-toggle git-gutter :mode git-gutter+-mode :toggle-keys "Tg")
+;;   ;; (global-git-gutter+-mode 1)
+;;   )
 
 ;; https://github.com/emacsorphanage/git-gutter-fringe
 ;; +- signs on left side of the code
-(use-package git-gutter-fringe+ :ensure t
-  :config
-  (git-gutter-fr+-minimal))
+;;(use-package git-gutter-fringe+ :ensure t
+;;  :config
+;;  (git-gutter-fr+-minimal))
 
 ;; (use-package magit
 ;;   :ensure t
