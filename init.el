@@ -75,6 +75,8 @@
 ;; Hard-to-categorize customizations
 (load "misc.el")
 
+(load "modes.el")
+
 (if (file-exists-p "local-sensitive.el")
     (load "local-sensitive.el"))
 

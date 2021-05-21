@@ -96,14 +96,6 @@
 ;;   :after 'company-ctags-auto-setup
 ;; )
 
-(use-package markdown-mode
-  :defer t
-  :ensure t
-  :mode ("\\.text\\'" "\\.markdown\\'" "\\.md\\'")
-  :config
-  (custom-set-variables
-   '(markdown-command "/usr/bin/pandoc")))
-
 ;; multi  line edit
 (use-package multiple-cursors
   :ensure t
@@ -122,12 +114,6 @@
   :ensure t
   :after (yasnippet))
 
-;; gnuplot
-(use-package gnuplot
-  :commands gnuplot-mode
-  :defer t
-  :ensure t)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; kill line if no region active                                          ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -141,11 +127,6 @@
 
 ;; cycle through amounts of spacing
 (global-set-key (kbd "M-SPC") 'cycle-spacing)
-
-(use-package apib-mode
-  :mode "\\.apib\\'"
-  :defer t
-  :ensure t)
 
 (use-package key-chord
   :defer t
@@ -208,12 +189,6 @@
   :ensure t
   :defer t)
 
-;; https://erick.navarro.io/blog/minimal-setup-for-elixir-development-in-emacs/
-(use-package elixir-mode
-  :ensure t
-  :bind (:map elixir-mode-map
-              ("C-c C-f" . elixir-format)))
-
 ;; https://github.com/jacktasia/dumb-jump
 (use-package dumb-jump
   :ensure t
@@ -242,16 +217,6 @@
   (setq browse-kill-ring-separator
         ".-~-.-~-.-~-.-~-.
 "))
-
-(use-package idris-mode
-  :ensure t
-  :config
-  (key-chord-define idris-mode-map "e." "=> ")
-  (key-chord-define idris-mode-map "w." "-> ")
-  (key-chord-define idris-mode-map "w," "<- ")
-  )
-
-(use-package haskell-mode :ensure t)
 
 ;; https://www.masteringemacs.org/article/re-builder-interactive-regexp-builder
 ;; you don’t have the issue of backslash plague that haunts the default settings
