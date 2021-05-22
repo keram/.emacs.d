@@ -182,11 +182,6 @@
                         "POSTPONED(p)"
                         ))))
 
-(defun yashi/org-agenda (&optional arg)
-  (interactive "P")
-  (let ((org-agenda-tag-filter-preset '("-life" "-@life")))
-    (org-agenda arg "a")))
-
 (setq org-agenda-prefix-format '(
                                  (agenda  . " • ")
                                  (timeline  . "  % s")
@@ -194,11 +189,8 @@
                                  (tags  . " %i %-12:c")
                                  (search . " %i %-12:c")))
 
-(add-hook 'calendar-load-hook
-          (lambda ()
-            (calendar-set-date-style 'european)))
-
 (setq calendar-week-start-day 1)
+(setq calendar-date-style 'european)
 
 (use-package org-web-tools :ensure t)
 
