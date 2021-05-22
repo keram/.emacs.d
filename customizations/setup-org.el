@@ -150,12 +150,15 @@
           (lambda ()
             (org-agenda-list 1)))
 
-(add-hook 'kill-emacs-hook
-          (lambda ()
-            (if (eq system-type 'windows-nt)
-                (let ((default-directory "~/tools"))
-                  (shell-command-to-string "sync-org.bat"))
-              )))
+(add-hook 'kill-emacs-hook 'mla/org-git-sync)
+
+(defun mla/org-git-sync ()
+  (interactive)
+  (pcase system-type
+    ('windows-nt (let ((default-directory "~/tools"))
+                   (shell-command-to-string "sync-org.bat")))
+    ('gnu/linux (shell-command-to-string
+                 (concat "cd " org-directory " && ~/tools/git-sync/git-sync")))))
 
 (setq org-ditaa-jar-path "~/tools/ditaa.jar")
 (setq org-agenda-hide-tags-regexp "work\\|life")
