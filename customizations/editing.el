@@ -165,14 +165,6 @@
 ;;--------------------------------------------
 (setq history-delete-duplicates t)
 
-;; emacs speak statistics
-(use-package ess
-  :ensure t
-  :defer f
-  ;; :config
-  ;; (key-chord-define ess-r-mode-map "w," " <- ")
-  )
-
 ;; https://github.com/pashky/restclient.el
 ;; https://erick.navarro.io/blog/testing-an-api-with-emacs-and-restclient/
 (use-package restclient

@@ -34,3 +34,12 @@
   )
 
 (use-package haskell-mode :ensure t)
+
+
+;; emacs speak statistics
+(use-package ess
+  :ensure t
+  :defer f
+  ;; :config
+  ;; (key-chord-define ess-r-mode-map "w," " <- ")
+  )
