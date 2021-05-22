@@ -120,9 +120,7 @@
 
 ; http://ergoemacs.org/emacs/emacs_dired_tips.html
 (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
-
 (define-key dired-mode-map (kbd "^") (lambda () (interactive) (find-alternate-file "..")))
-
 
 ;; ANSI & xterm-256 color text property translator for Emacs
 ;; suppose to be better than native ansi-color

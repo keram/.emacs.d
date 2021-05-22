@@ -48,9 +48,6 @@
 
 (setq auto-save-default nil)
 
-;; C-x C-; is default comment command
-;; (global-set-key (kbd "C-c C-c") 'comment-or-uncomment-region)
-
 ;; yay rainbows!
 ;;(global-rainbow-delimiters-mode t)
 (use-package rainbow-delimiters
@@ -71,13 +68,6 @@
 
 (setq fill-nobreak-predicate
       (list 'fill-break-p))
-
-; (defun no-junk-please-were-unixish ()
-;   (let ((coding-str (symbol-name buffer-file-coding-system)))
-;     (when (string-match "-\\(?:dos\\|mac\\)$" coding-str)
-;       (set-buffer-file-coding-system 'unix))))
-
-; (add-hook 'find-file-hooks 'no-junk-please-were-unixish)
 
 (use-package company
   :ensure t

@@ -25,7 +25,6 @@
   :bind (:map elixir-mode-map
               ("C-c C-f" . elixir-format)))
 
-
 (use-package idris-mode
   :ensure t
   :config
