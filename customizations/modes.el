@@ -43,3 +43,11 @@
   ;; :config
   ;; (key-chord-define ess-r-mode-map "w," " <- ")
   )
+
+(use-package poly-markdown
+  :ensure t)
+
+(use-package polymode
+  :ensure t
+  :config
+  (require 'poly-markdown))

@@ -208,14 +208,6 @@
   :config
   (add-hook 'org-export-before-parsing-hook 'orcp-citeproc))
 
-(use-package poly-markdown
-  :ensure t)
-
-(use-package polymode
-  :ensure t
-  :config
-  (require 'poly-markdown))
-
 ;;https://github.com/alphapapa/org-super-agenda
 ;; (use-package org-super-agenda
 ;;   :ensure t
