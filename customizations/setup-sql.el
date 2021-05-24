@@ -118,7 +118,7 @@
             ;; Capitalize keywords in an interactive session (e.g. psql)
             (add-hook 'sql-interactive-mode-hook 'sqlup-mode)
             )
-  )
+  :custom (sqlup-blacklist '("id" "name")))
 
 (use-package sql-indent
   :ensure t
