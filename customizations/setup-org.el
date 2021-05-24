@@ -102,6 +102,7 @@
       org-fontify-done-headline t
       org-hide-emphasis-markers t
       org-log-reschedule 'time
+      org-show-notification-handler 'message
 )
 
 (setq org-html-validation-link nil
