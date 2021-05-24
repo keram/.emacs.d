@@ -157,8 +157,11 @@
   (pcase system-type
     ('windows-nt (let ((default-directory "~/tools"))
                    (shell-command-to-string "sync-org.bat")))
+    ('darwin (shell-command-to-string
+                 (concat "cd " org-directory " && ~/tools/git-sync/git-sync")))
     ('gnu/linux (shell-command-to-string
                  (concat "cd " org-directory " && ~/tools/git-sync/git-sync")))))
+
 
 (setq org-ditaa-jar-path "~/tools/ditaa.jar")
 (setq org-agenda-hide-tags-regexp "work\\|life")
