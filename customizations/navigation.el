@@ -44,22 +44,35 @@
 (use-package flx
   :ensure t)
 
-(use-package flx-ido
-  :ensure t)
+;; (use-package flx-ido
+;;   :ensure t)
 
-(use-package ido-vertical-mode
-  :ensure t
-  :config
-  (ido-vertical-mode 1)
-  (setq ido-vertical-define-keys 'C-n-and-C-p-only))
+;; (use-package ido-vertical-mode
+;;   :ensure t
+;;   :config
+;;   (ido-vertical-mode 1)
+;;   (setq ido-vertical-define-keys 'C-n-and-C-p-only))
 
-(use-package ido-completing-read+
-  :ensure t
-  :config
-  (ido-mode t)
-  (ido-ubiquitous-mode 1)
-  ;; (setq ido-auto-merge-work-directories-length -1)
-  )
+;; (use-package ido-completing-read+
+;;   :ensure t
+;;   :config
+;;   (ido-mode t)
+;;   (ido-ubiquitous-mode 1)
+;;   ;; (setq ido-auto-merge-work-directories-length -1)
+;;   )
+
+(icomplete-mode t)
+(setq icomplete-separator "\n - ")
+;; > Emacs 27.1
+(setq completion-styles '(initials partial-completion flex))
+(setq completion-cycle-threshold 10)
+
+;; (define-key icomplete-minibuffer-map (kbd "M-n") 'icomplete-forward-completions)
+;; (define-key icomplete-minibuffer-map (kbd "M-p") 'icomplete-backward-completions)
+(define-key icomplete-minibuffer-map [?\M-n]  'icomplete-forward-completions)
+(define-key icomplete-minibuffer-map [?\M-p]  'icomplete-backward-completions)
+(define-key icomplete-fido-mode-map [?\M-n]  'icomplete-forward-completions)
+(define-key icomplete-fido-mode-map [?\M-p]  'icomplete-backward-completions)
 
 
 ;; Enhances M-x to allow easier execution of commands. Provides
