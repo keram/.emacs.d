@@ -201,11 +201,13 @@
 
 (use-package org-web-tools :ensure t)
 
-(use-package org-ref
-  :after org
-  :ensure t
-  :config
-  (add-hook 'org-export-before-parsing-hook 'orcp-citeproc))
+;; failing to install after upgrade
+;; Error (use-package): Cannot load org-ref
+;; (use-package org-ref
+;;   :after org
+;;   :ensure t
+;;   :config
+;;   (add-hook 'org-export-before-parsing-hook 'orcp-citeproc))
 
 ;;https://github.com/alphapapa/org-super-agenda
 ;; (use-package org-super-agenda
