@@ -62,10 +62,12 @@
 ;;   )
 
 (icomplete-mode t)
+(fido-mode t)
 (setq icomplete-separator "\n - ")
 ;; > Emacs 27.1
 (setq completion-styles '(initials partial-completion flex))
 (setq completion-cycle-threshold 10)
+(setq read-buffer-completion-ignore-case t)
 
 ;; (define-key icomplete-minibuffer-map (kbd "M-n") 'icomplete-forward-completions)
 ;; (define-key icomplete-minibuffer-map (kbd "M-p") 'icomplete-backward-completions)
