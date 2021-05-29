@@ -7,7 +7,7 @@
  '(package-selected-packages
    (quote
     (slime parsebib dash company zoom-window yasnippet-snippets xterm-color
-           which-key use-package tide sqlup-mode sql-indent smex slime-company
+           which-key use-package tide sqlup-mode sql-indent slime-company
            rubocop rbenv rainbow-delimiters projectile poly-markdown
            ox-tufte ox-reveal ox-gfm org-web-tools org-ref org-present org-pdftools org-bullets ob-restclient
            js2-mode ipretty idris-mode haskell-mode gnuplot gitignore-mode

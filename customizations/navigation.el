@@ -77,12 +77,12 @@
 ;; Enhances M-x to allow easier execution of commands. Provides
 ;; a filterable list of possible commands in the minibuffer
 ;; http://www.emacswiki.org/emacs/Smex
-(use-package smex
-  :ensure t
-  :bind (("M-x" . smex))
-  :config
-  (setq smex-save-file (concat user-emacs-directory ".smex-items"))
-  (smex-initialize))
+;; (use-package smex
+;;   :ensure t
+;;   :bind (("M-x" . smex))
+;;   :config
+;;   (setq smex-save-file (concat user-emacs-directory ".smex-items"))
+;;   (smex-initialize))
 
 ;; projectile everywhere!
 (use-package projectile
